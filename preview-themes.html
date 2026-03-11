@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Preview — Prime Meridian AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: #1a1a1a; color: #ccc; }
+    h1, h2, h3, h4 { font-family: 'Fraunces', serif; }
+
+    .theme-label {
+      text-align: center;
+      padding: 2rem 1rem 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+    }
+
+    .theme {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* --- Theme tokens as CSS vars per section --- */
+
+    /* Option A: Night Sky Navigator */
+    .theme-a { --bg: #0B1120; --surface: #131B2E; --surface-alt: #1A2540; --primary: #E8DCC8; --accent: #D4A853; --accent-hover: #C49A45; --text: #C8C5BE; --text-sec: #8A8780; --border: #1E2A42; }
+    /* Option B: Deep Ocean */
+    .theme-b { --bg: #0A1014; --surface: #111A1F; --surface-alt: #162028; --primary: #E4DED2; --accent: #C8913A; --accent-hover: #B07E2E; --text: #B8B4AA; --text-sec: #7A776E; --border: #1C2830; }
+    /* Option C: Starfield */
+    .theme-c { --bg: #09090B; --surface: #121215; --surface-alt: #1A1A1F; --primary: #F0ECE4; --accent: #E8B84D; --accent-hover: #D4A63E; --text: #BFBBB2; --text-sec: #7D7A72; --border: #1F1F24; }
+
+    /* --- Shared component styles using vars --- */
+
+    .preview-nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .preview-nav__logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .preview-nav__logo span { color: var(--accent); }
+    .preview-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .preview-nav__links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .preview-nav__links .cta-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .preview-hero {
+      background: var(--bg);
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+    .preview-hero__eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+    .preview-hero h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .preview-hero p {
+      color: var(--text-sec);
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .preview-hero__actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-block;
+      border: 2px solid var(--primary);
+    }
+
+    .preview-cards {
+      background: var(--surface-alt);
+      padding: 3rem 2rem;
+    }
+    .preview-cards__header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .preview-cards__header span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .preview-cards__header h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.8rem;
+      color: var(--text-sec);
+      line-height: 1.5;
+    }
+
+    .preview-cta {
+      background: var(--bg);
+      padding: 2rem;
+    }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .cta-box h2 {
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+    .cta-box p {
+      color: var(--text-sec);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preview-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-sec);
+    }
+    .preview-footer a {
+      color: var(--text-sec);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .preview-nav__links a:not(.cta-btn) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ OPTION A: Night Sky Navigator ============ -->
+  <div class="theme-label">Option A — Night Sky Navigator</div>
+  <div class="theme theme-a">
+    <nav class="preview-nav">
+      <div class="preview-nav__logo">Prime Meridian <span>AI</span></div>
+      <div class="preview-nav__links">
+        <a href="#">Home</a>
+        <a href="#">The AI Audit</a>
+        <a href="#">About</a>
+        <a href="#" class="cta-btn">Book a Discovery Call</a>
+      </div>
+    </nav>
+    <section class="preview-hero">
+      <div class="preview-hero__eyebrow">AI Strategy for Professional Services</div>
+      <h1>What if AI advice was built around your actual business?</h1>
+      <p>Most AI advice is generic. Ours isn't. We come inside your business, talk to your people, and map exactly where AI and automation will make a real difference.</p>
+      <div class="preview-hero__actions">
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+        <a href="#" class="btn-secondary">How the Audit Works</a>
+      </div>
+    </section>
+    <section class="preview-cards">
+      <div class="preview-cards__header">
+        <span>The Problem</span>
+        <h2>You know you should be doing something with AI</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Generic advice doesn't fit</h3>
+          <p>Every AI guide seems written for tech companies. Your practice has its own processes — and its own opportunities.</p>
+        </div>
+        <div class="card">
+          <h3>You're already stretched</h3>
+          <p>You can't afford to waste time experimenting with tools that might not be right for your business.</p>
+        </div>
+        <div class="card">
+          <h3>You want clarity, not confusion</h3>
+          <p>What you actually need is a clear plan — specific to your business — that you can act on.</p>
+        </div>
+      </div>
+    </section>
+    <section class="preview-cta">
+      <div class="cta-box">
+        <h2>Ready to find out what AI can do for your business?</h2>
+        <p>No pitch, no pressure. Just a 30-minute conversation.</p>
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+      </div>
+    </section>
+    <div class="preview-footer">
+      <span>&copy; 2026 Prime Meridian AI</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+  <!-- ============ OPTION B: Deep Ocean ============ -->
+  <div class="theme-label">Option B — Deep Ocean</div>
+  <div class="theme theme-b">
+    <nav class="preview-nav">
+      <div class="preview-nav__logo">Prime Meridian <span>AI</span></div>
+      <div class="preview-nav__links">
+        <a href="#">Home</a>
+        <a href="#">The AI Audit</a>
+        <a href="#">About</a>
+        <a href="#" class="cta-btn">Book a Discovery Call</a>
+      </div>
+    </nav>
+    <section class="preview-hero">
+      <div class="preview-hero__eyebrow">AI Strategy for Professional Services</div>
+      <h1>What if AI advice was built around your actual business?</h1>
+      <p>Most AI advice is generic. Ours isn't. We come inside your business, talk to your people, and map exactly where AI and automation will make a real difference.</p>
+      <div class="preview-hero__actions">
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+        <a href="#" class="btn-secondary">How the Audit Works</a>
+      </div>
+    </section>
+    <section class="preview-cards">
+      <div class="preview-cards__header">
+        <span>The Problem</span>
+        <h2>You know you should be doing something with AI</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Generic advice doesn't fit</h3>
+          <p>Every AI guide seems written for tech companies. Your practice has its own processes — and its own opportunities.</p>
+        </div>
+        <div class="card">
+          <h3>You're already stretched</h3>
+          <p>You can't afford to waste time experimenting with tools that might not be right for your business.</p>
+        </div>
+        <div class="card">
+          <h3>You want clarity, not confusion</h3>
+          <p>What you actually need is a clear plan — specific to your business — that you can act on.</p>
+        </div>
+      </div>
+    </section>
+    <section class="preview-cta">
+      <div class="cta-box">
+        <h2>Ready to find out what AI can do for your business?</h2>
+        <p>No pitch, no pressure. Just a 30-minute conversation.</p>
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+      </div>
+    </section>
+    <div class="preview-footer">
+      <span>&copy; 2026 Prime Meridian AI</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+  <!-- ============ OPTION C: Starfield ============ -->
+  <div class="theme-label">Option C — Starfield</div>
+  <div class="theme theme-c">
+    <nav class="preview-nav">
+      <div class="preview-nav__logo">Prime Meridian <span>AI</span></div>
+      <div class="preview-nav__links">
+        <a href="#">Home</a>
+        <a href="#">The AI Audit</a>
+        <a href="#">About</a>
+        <a href="#" class="cta-btn">Book a Discovery Call</a>
+      </div>
+    </nav>
+    <section class="preview-hero">
+      <div class="preview-hero__eyebrow">AI Strategy for Professional Services</div>
+      <h1>What if AI advice was built around your actual business?</h1>
+      <p>Most AI advice is generic. Ours isn't. We come inside your business, talk to your people, and map exactly where AI and automation will make a real difference.</p>
+      <div class="preview-hero__actions">
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+        <a href="#" class="btn-secondary">How the Audit Works</a>
+      </div>
+    </section>
+    <section class="preview-cards">
+      <div class="preview-cards__header">
+        <span>The Problem</span>
+        <h2>You know you should be doing something with AI</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Generic advice doesn't fit</h3>
+          <p>Every AI guide seems written for tech companies. Your practice has its own processes — and its own opportunities.</p>
+        </div>
+        <div class="card">
+          <h3>You're already stretched</h3>
+          <p>You can't afford to waste time experimenting with tools that might not be right for your business.</p>
+        </div>
+        <div class="card">
+          <h3>You want clarity, not confusion</h3>
+          <p>What you actually need is a clear plan — specific to your business — that you can act on.</p>
+        </div>
+      </div>
+    </section>
+    <section class="preview-cta">
+      <div class="cta-box">
+        <h2>Ready to find out what AI can do for your business?</h2>
+        <p>No pitch, no pressure. Just a 30-minute conversation.</p>
+        <a href="#" class="btn-primary">Book a Discovery Call</a>
+      </div>
+    </section>
+    <div class="preview-footer">
+      <span>&copy; 2026 Prime Meridian AI</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+
+</body>
+</html>
