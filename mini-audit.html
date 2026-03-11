@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Mini AI Self-Audit — Prime Meridian AI</title>
+  <meta name="description" content="Map the AI opportunities in your business yourself. A free, structured 2-hour self-audit guide — no consultant needed.">
+  <meta property="og:title" content="Free Mini AI Self-Audit — Prime Meridian AI">
+  <meta property="og:description" content="A free 2-hour self-audit guide to map the AI opportunities in your business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://primemeridianai.com/mini-audit">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">Prime Meridian <span>AI</span></a>
+      <div class="nav__links" id="nav-links">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/ai-audit.html" class="nav__link">The AI Audit</a>
+        <a href="/about.html" class="nav__link">About</a>
+        <a href="/book.html" class="btn btn--primary btn--nav">Book a Discovery Call</a>
+      </div>
+      <button class="nav__toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container container--narrow">
+        <span class="hero__eyebrow">Free Guide</span>
+        <h1 class="hero__title">Map the AI opportunities in your business — in 2 hours</h1>
+        <p class="hero__subtitle">A structured self-audit process you can run yourself, today, without needing a consultant. Walk through your business step by step and find out exactly where AI can save you time and money.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="grid grid--2" style="align-items: start;">
+
+          <!-- Benefits -->
+          <div>
+            <h2 class="mb-lg">What's in the guide</h2>
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">A structured process</h4>
+                <p class="text-secondary" style="font-size: var(--text-sm);">Step-by-step instructions to walk through every area of your business. No technical knowledge needed — just honest answers about how your team works.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">The right questions</h4>
+                <p class="text-secondary" style="font-size: var(--text-sm);">The same kind of questions we use in the full AI Audit — adapted so you can run them yourself. They're designed to surface opportunities you don't even recognise yet.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">A simple scoring framework</h4>
+                <p class="text-secondary" style="font-size: var(--text-sm);">Rate each opportunity by impact and effort. By the end, you'll have a prioritised list of where AI could make the biggest difference in your business.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: var(--space-xs);">No strings attached</h4>
+                <p class="text-secondary" style="font-size: var(--text-sm);">This is genuinely free and genuinely useful. Use it, act on it, share it. If you want to go deeper later, the full AI Audit is there — but there's no pressure and no sales sequence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="card" style="padding: var(--space-2xl);">
+            <h3 style="margin-bottom: var(--space-lg);">Get the free guide</h3>
+            <!-- Replace action URL with Brevo form endpoint -->
+            <form id="mini-audit-form" action="#" method="POST">
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="company">Company name <span class="optional">(optional)</span></label>
+                <input type="text" id="company" name="company" autocomplete="organization">
+              </div>
+              <div class="form-group">
+                <label for="size">Company size <span class="optional">(optional)</span></label>
+                <select id="size" name="size">
+                  <option value="">Select...</option>
+                  <option value="just-me">Just me</option>
+                  <option value="2-9">2-9 people</option>
+                  <option value="10-50">10-50 people</option>
+                  <option value="51-150">51-150 people</option>
+                  <option value="150+">150+ people</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="checkbox-group">
+                  <input type="checkbox" id="consent" name="consent" required>
+                  <label for="consent">I agree to receive the guide and occasional updates from Prime Meridian AI. You can unsubscribe at any time. See our <a href="/privacy.html">privacy policy</a>.</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">Send me the guide</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand">Prime Meridian <span>AI</span></div>
+          <p class="footer__tagline">AI strategy built around your actual business. Audits, automation, and clear guidance for professional services firms.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <div class="footer__links">
+            <a href="/">Home</a>
+            <a href="/ai-audit.html">The AI Audit</a>
+            <a href="/about.html">About</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <a href="mailto:hello@primemeridianai.com">hello@primemeridianai.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Meridian AI</span>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
