@@ -229,20 +229,17 @@ small {
 }
 
 .nav__logo {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-primary);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: -0.02em;
 }
 
-.nav__logo:hover {
-  color: var(--color-primary);
-}
-
-.nav__logo span {
-  color: var(--color-accent);
+.nav__logo img {
+  height: 40px;
+  width: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 2px 8px;
 }
 
 .nav__links {
@@ -721,15 +718,15 @@ small {
 }
 
 .footer__brand {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: var(--color-primary);
   margin-bottom: var(--space-md);
 }
 
-.footer__brand span {
-  color: var(--color-accent);
+.footer__brand img {
+  height: 32px;
+  width: auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2px 6px;
 }
 
 .footer__tagline {
