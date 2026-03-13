@@ -237,9 +237,15 @@ small {
 .nav__logo img {
   height: 40px;
   width: auto;
-  background: #fff;
-  border-radius: 6px;
-  padding: 2px 8px;
+}
+
+.nav__logo span {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-left: var(--space-xs);
+  letter-spacing: 0.02em;
 }
 
 .nav__links {
@@ -724,9 +730,6 @@ small {
 .footer__brand img {
   height: 32px;
   width: auto;
-  background: #fff;
-  border-radius: 5px;
-  padding: 2px 6px;
 }
 
 .footer__tagline {
