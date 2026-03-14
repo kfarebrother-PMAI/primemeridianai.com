@@ -48,4 +48,34 @@
       link.classList.add('nav__link--active');
     }
   });
+
+  // Scroll-triggered reveal animations
+  var revealElements = document.querySelectorAll('.reveal');
+  if (revealElements.length > 0 && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(function (el, index) {
+      // Set stagger index for grid children
+      var parent = el.parentElement;
+      if (parent && parent.classList.contains('reveal-stagger')) {
+        el.style.setProperty('--reveal-index', index);
+      }
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show everything immediately
+    revealElements.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }
 })();
