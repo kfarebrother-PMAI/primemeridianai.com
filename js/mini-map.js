@@ -369,7 +369,7 @@
         maintainAspectRatio: true,
         aspectRatio: 1,
         layout: {
-          padding: 20,
+          padding: 40,
         },
         scales: {
           x: {
