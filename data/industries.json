@@ -1,0 +1,312 @@
+{
+  "industries": [
+    {
+      "id": "accountancy",
+      "name": "Accountancy",
+      "icon": "calculator",
+      "processes": [
+        {
+          "id": "bank-reconciliation",
+          "name": "Month-end bank reconciliation",
+          "description": "Matching bank transactions to ledger entries, chasing discrepancies, and posting adjustments.",
+          "defaultEffort": "low",
+          "explanation": "AI auto-matches 80-90% of transactions and flags only genuine discrepancies. What used to take a full day per client compresses to a quick review."
+        },
+        {
+          "id": "client-onboarding",
+          "name": "Client onboarding paperwork",
+          "description": "Collecting engagement letters, AML checks, proof of identity, authorisations, and setting up the client in practice management software.",
+          "defaultEffort": "medium",
+          "explanation": "AI pre-populates forms from Companies House data, runs AML checks automatically, and chases missing documents via email — cutting onboarding from days to hours."
+        },
+        {
+          "id": "vat-returns",
+          "name": "VAT return preparation",
+          "description": "Pulling transactions, categorising by VAT rate, running the calculation, generating the return, and submitting to HMRC via MTD.",
+          "defaultEffort": "low",
+          "explanation": "AI categorises transactions using learned patterns from prior returns, flags anomalies, and drafts the return for review. Turns a half-day job into a 20-minute check."
+        },
+        {
+          "id": "invoice-chasing",
+          "name": "Chasing outstanding client invoices",
+          "description": "Tracking unpaid invoices, sending reminders at 30/60/90 days, escalating overdue accounts, and updating the aged debtors report.",
+          "defaultEffort": "low",
+          "explanation": "Automated reminder sequences with personalised tone. AI prioritises by amount and relationship risk. Partners only get involved when it actually matters."
+        },
+        {
+          "id": "annual-accounts",
+          "name": "Annual accounts preparation",
+          "description": "Compiling trial balance, making year-end adjustments, preparing statutory accounts, and generating the filing package for Companies House.",
+          "defaultEffort": "high",
+          "explanation": "AI drafts standard notes, identifies missing adjustments by comparing to prior year, and flags areas needing partner review. The heavy lifting shifts from assembly to judgment."
+        },
+        {
+          "id": "tax-data-gathering",
+          "name": "Tax return data gathering",
+          "description": "Requesting P60s, dividend vouchers, rental income figures, and pension contributions from clients — often multiple chase cycles.",
+          "defaultEffort": "low",
+          "explanation": "AI sends structured data requests to clients, tracks what's outstanding, auto-extracts figures from uploaded documents, and populates the return template."
+        },
+        {
+          "id": "payroll-processing",
+          "name": "Payroll processing",
+          "description": "Running monthly payroll: calculating gross-to-net, applying tax codes, generating payslips, filing RTI submissions to HMRC.",
+          "defaultEffort": "low",
+          "explanation": "AI handles the routine calculation and filing. Human involvement shifts to exceptions — new starters, statutory payments, and HMRC queries."
+        },
+        {
+          "id": "email-triage",
+          "name": "Client email triage and response",
+          "description": "Reading, categorising, and responding to the daily flow of client queries about deadlines, document requests, and general questions.",
+          "defaultEffort": "low",
+          "explanation": "AI drafts responses to common queries using firm templates and client context. Unusual questions get flagged for human attention with suggested answers."
+        },
+        {
+          "id": "expense-categorisation",
+          "name": "Expense categorisation",
+          "description": "Reviewing and coding client expense receipts and bank transactions to the correct nominal codes in the accounting software.",
+          "defaultEffort": "low",
+          "explanation": "AI learns your coding patterns and auto-categorises with high accuracy. Exceptions get flagged. Bulk processing replaces line-by-line review."
+        },
+        {
+          "id": "management-reporting",
+          "name": "Management reporting for clients",
+          "description": "Producing monthly or quarterly management accounts, commentary, and KPI dashboards for advisory clients.",
+          "defaultEffort": "medium",
+          "explanation": "AI generates first-draft commentary by comparing current period to prior periods and highlighting significant movements. Accountants add insight instead of assembling data."
+        }
+      ]
+    },
+    {
+      "id": "law",
+      "name": "Law",
+      "icon": "scale",
+      "processes": [
+        {
+          "id": "document-review",
+          "name": "Document review and due diligence",
+          "description": "Reviewing large volumes of documents during transactions or disputes to identify relevant provisions or risks.",
+          "defaultEffort": "medium",
+          "explanation": "AI scans thousands of pages in minutes, flags relevant clauses, identifies risk patterns, and produces a structured summary. Lawyers focus on judgment calls, not reading."
+        },
+        {
+          "id": "client-intake",
+          "name": "Client intake and conflict checks",
+          "description": "Running new client details against existing records for conflicts of interest, collecting KYC/AML documentation, and setting up the matter.",
+          "defaultEffort": "low",
+          "explanation": "AI runs conflict checks instantly across all systems, auto-populates intake forms from Companies House and public records, and triggers KYC workflows automatically."
+        },
+        {
+          "id": "time-recording",
+          "name": "Time recording and narrative entry",
+          "description": "Lawyers recording their time throughout the day — entering descriptions of work done and allocating to the right matter code.",
+          "defaultEffort": "low",
+          "explanation": "AI captures work activity passively (emails sent, documents edited, calls made) and drafts time entries for lawyer approval. Recovers the 15-20% of billable time that typically goes unrecorded."
+        },
+        {
+          "id": "contract-drafting",
+          "name": "First-draft contract assembly",
+          "description": "Creating initial drafts of standard agreements (NDAs, employment contracts, shareholder agreements) by selecting clauses from precedent banks.",
+          "defaultEffort": "medium",
+          "explanation": "AI assembles first drafts from your precedent library using deal-specific parameters. Lawyers move straight to review and negotiation instead of cut-and-paste."
+        },
+        {
+          "id": "legal-research",
+          "name": "Legal research and case analysis",
+          "description": "Researching relevant legislation, case law, and regulatory guidance to support advice or build arguments.",
+          "defaultEffort": "high",
+          "explanation": "AI searches across legal databases, summarises relevant authorities, and identifies supporting or conflicting precedent. Paralegals produce research memos in hours, not days."
+        },
+        {
+          "id": "client-correspondence",
+          "name": "Client correspondence and updates",
+          "description": "Writing and sending status updates, next-steps letters, and general correspondence to clients on ongoing matters.",
+          "defaultEffort": "low",
+          "explanation": "AI drafts correspondence using matter context and firm tone. Fee earners review and personalise rather than composing from scratch."
+        },
+        {
+          "id": "billing",
+          "name": "Invoice preparation and billing",
+          "description": "Reviewing WIP, writing billing narratives, applying agreed fee arrangements, and generating the final bill.",
+          "defaultEffort": "low",
+          "explanation": "AI drafts billing narratives from time entries, applies fee caps or fixed-fee arrangements automatically, and flags WIP that's been unbilled too long."
+        },
+        {
+          "id": "deadline-tracking",
+          "name": "Court deadline and compliance tracking",
+          "description": "Managing limitation dates, filing deadlines, hearing dates, and compliance milestones across all active matters.",
+          "defaultEffort": "low",
+          "explanation": "AI monitors all deadlines across the practice, sends escalating reminders, and flags clashes or risks. Nothing gets missed because someone was on holiday."
+        },
+        {
+          "id": "disclosure-bundling",
+          "name": "Disclosure and document bundling",
+          "description": "Preparing document bundles for litigation — paginating, indexing, redacting privileged content, and ensuring completeness.",
+          "defaultEffort": "medium",
+          "explanation": "AI auto-indexes, paginates, and cross-references documents. Identifies potentially privileged material for review. Reduces a week-long bundling exercise to a day."
+        },
+        {
+          "id": "kyc-renewals",
+          "name": "Know Your Client (KYC) renewals",
+          "description": "Re-verifying existing client identity documents, checking sanctions lists, and updating records for AML compliance.",
+          "defaultEffort": "low",
+          "explanation": "AI runs batch checks against sanctions and PEP databases, identifies expired documentation, and sends renewal requests automatically. Compliance officers review exceptions only."
+        }
+      ]
+    },
+    {
+      "id": "recruitment",
+      "name": "Recruitment",
+      "icon": "users",
+      "processes": [
+        {
+          "id": "cv-screening",
+          "name": "CV screening and shortlisting",
+          "description": "Reading through hundreds of CVs per role to identify candidates who meet the job specification, then producing a shortlist.",
+          "defaultEffort": "low",
+          "explanation": "AI scores CVs against the job spec instantly, explains why each candidate does or doesn't fit, and produces a ranked shortlist. Recruiters spend time on the best candidates, not all candidates."
+        },
+        {
+          "id": "candidate-sourcing",
+          "name": "Candidate sourcing on job boards and LinkedIn",
+          "description": "Searching job boards, LinkedIn, and internal databases to find passive candidates, then crafting personalised outreach messages.",
+          "defaultEffort": "medium",
+          "explanation": "AI searches across multiple platforms simultaneously, identifies matching candidates, and drafts personalised outreach messages using the candidate's profile and role context."
+        },
+        {
+          "id": "interview-scheduling",
+          "name": "Interview scheduling and coordination",
+          "description": "Coordinating diaries between candidates, hiring managers, and panel members across multiple rounds of interviews.",
+          "defaultEffort": "low",
+          "explanation": "AI handles the entire scheduling dance — checks availability, proposes times, sends confirmations, and reschedules when people cancel. Zero email ping-pong."
+        },
+        {
+          "id": "job-intake",
+          "name": "Client job intake and brief creation",
+          "description": "Meeting clients to understand the role, writing the job description, agreeing terms, and setting up the vacancy in your ATS.",
+          "defaultEffort": "medium",
+          "explanation": "AI drafts the job description from intake meeting notes, suggests salary benchmarks from market data, and pre-populates the ATS setup. Consultants refine rather than create from scratch."
+        },
+        {
+          "id": "client-status-updates",
+          "name": "Candidate status updates to clients",
+          "description": "Sending regular updates to clients on pipeline status, interview feedback, and candidate availability for each active role.",
+          "defaultEffort": "low",
+          "explanation": "AI generates pipeline reports and status updates from your ATS data, drafted in your firm's tone. Consultants review and send rather than compiling from multiple screens."
+        },
+        {
+          "id": "reference-checking",
+          "name": "Reference checking",
+          "description": "Contacting referees, asking structured questions, recording responses, and summarising findings for the client file.",
+          "defaultEffort": "low",
+          "explanation": "AI sends reference request forms, follows up automatically, and compiles responses into a structured report. Recruiters only get involved for verbal references or concerns."
+        },
+        {
+          "id": "compliance-docs",
+          "name": "Compliance documentation (IR35, right-to-work)",
+          "description": "Collecting right-to-work documents, running IR35 assessments for contractors, and maintaining audit-ready records.",
+          "defaultEffort": "medium",
+          "explanation": "AI guides candidates through document submission, runs IR35 assessments using HMRC's CEST criteria, and flags compliance gaps before they become problems."
+        },
+        {
+          "id": "placement-invoicing",
+          "name": "Placement invoicing and fee tracking",
+          "description": "Generating invoices when placements are made, tracking fee milestones and rebate periods, and chasing payment.",
+          "defaultEffort": "low",
+          "explanation": "AI generates invoices automatically when placement status changes, monitors rebate periods, and sends payment reminders on schedule. Finance admin drops dramatically."
+        },
+        {
+          "id": "database-hygiene",
+          "name": "Database hygiene and candidate re-engagement",
+          "description": "Cleaning stale records in your ATS/CRM, re-engaging dormant candidates, and ensuring contact details are current.",
+          "defaultEffort": "low",
+          "explanation": "AI identifies stale records, sends re-engagement campaigns to dormant candidates, and updates records based on responses. Your database becomes an asset rather than a liability."
+        },
+        {
+          "id": "performance-reporting",
+          "name": "Weekly and monthly performance reporting",
+          "description": "Pulling KPIs (placements, fees, time-to-fill, conversion rates) from your ATS for team meetings and client SLA reporting.",
+          "defaultEffort": "low",
+          "explanation": "AI generates reports automatically from your ATS data, highlights trends and anomalies, and drafts commentary. What took a Friday afternoon happens in minutes."
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing & Creative",
+      "icon": "palette",
+      "processes": [
+        {
+          "id": "performance-reporting",
+          "name": "Monthly performance reporting for retainer clients",
+          "description": "Pulling analytics from Google, Meta, LinkedIn, compiling results against KPIs, writing commentary, and formatting client-ready reports.",
+          "defaultEffort": "low",
+          "explanation": "AI pulls data from all platforms via APIs, identifies significant movements, and drafts the commentary. What took a full day per client becomes a 30-minute review and send."
+        },
+        {
+          "id": "social-scheduling",
+          "name": "Social media content scheduling",
+          "description": "Planning, writing, and scheduling posts across multiple platforms for multiple clients — maintaining brand voice and posting frequency.",
+          "defaultEffort": "medium",
+          "explanation": "AI generates post drafts from campaign briefs and brand guides, adapts copy per platform, and suggests optimal posting times. Content managers curate and approve rather than write from zero."
+        },
+        {
+          "id": "brief-management",
+          "name": "Client brief and feedback management",
+          "description": "Receiving client briefs, interpreting requirements, distributing to the creative team, and managing feedback rounds through to approval.",
+          "defaultEffort": "medium",
+          "explanation": "AI structures incoming briefs into standardised formats, tracks feedback cycles, and flags when approvals are overdue. Less time lost to version confusion."
+        },
+        {
+          "id": "campaign-analysis",
+          "name": "Campaign performance analysis",
+          "description": "Analysing A/B test results, audience segments, creative variants, and attribution across channels to optimise spend.",
+          "defaultEffort": "medium",
+          "explanation": "AI runs analysis automatically as data comes in, identifies winning variants, suggests budget reallocation, and spots diminishing returns. Strategists make decisions faster with better data."
+        },
+        {
+          "id": "competitive-research",
+          "name": "Competitive research and trend monitoring",
+          "description": "Tracking competitor campaigns, creative approaches, messaging, and market positioning to inform client strategy.",
+          "defaultEffort": "medium",
+          "explanation": "AI monitors competitor channels, flags new campaigns or messaging shifts, and produces regular competitive intelligence summaries. Strategy stays current without manual trawling."
+        },
+        {
+          "id": "pitch-decks",
+          "name": "Proposal and pitch deck creation",
+          "description": "Writing creative proposals for new business pitches — case studies, approach, team bios, pricing, timelines, and mock-ups.",
+          "defaultEffort": "high",
+          "explanation": "AI assembles first drafts from your case study library and proposal templates, personalised to the prospect's industry and brief. Creative directors focus on the killer idea, not the boilerplate."
+        },
+        {
+          "id": "invoicing-timesheets",
+          "name": "Invoice and timesheet management",
+          "description": "Tracking time across multiple client projects, reconciling against retainer hours or budgets, generating invoices, and chasing payment.",
+          "defaultEffort": "low",
+          "explanation": "AI tracks time from project management tools, alerts when budgets are running hot, generates invoices on schedule, and sends payment reminders. Finance overhead drops to near-zero."
+        },
+        {
+          "id": "seo-planning",
+          "name": "SEO content planning and keyword research",
+          "description": "Researching keywords, analysing search intent, mapping content gaps, and building editorial calendars for client SEO strategy.",
+          "defaultEffort": "medium",
+          "explanation": "AI analyses search data, identifies content opportunities with realistic ranking potential, and drafts content briefs with target keywords, structure, and competitive benchmarks."
+        },
+        {
+          "id": "asset-management",
+          "name": "Asset management and file organisation",
+          "description": "Organising creative assets (logos, photos, videos, fonts, brand guidelines) across clients, ensuring teams find the right files.",
+          "defaultEffort": "low",
+          "explanation": "AI auto-tags and categorises assets, enforces naming conventions, flags outdated files, and surfaces relevant assets when new projects start."
+        },
+        {
+          "id": "email-campaigns",
+          "name": "Email campaign setup and testing",
+          "description": "Building email campaigns — HTML templates, merge tags, segmentation, A/B variants, scheduling, and pre-send testing across email clients.",
+          "defaultEffort": "medium",
+          "explanation": "AI generates email copy from campaign briefs, builds HTML templates, sets up segmentation rules, and runs pre-send checks for rendering issues. Marketers focus on strategy, not platform mechanics."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <title>Your AI Mini-Map — Prime Meridian AI</title>
+  <meta name="description" content="Pick your industry, rate a few processes, see where AI can help. 3 minutes. Free. No sign-up required.">
+  <meta property="og:title" content="Your AI Mini-Map — Prime Meridian AI">
+  <meta property="og:description" content="Find the AI opportunities hiding in your business. 3 minutes. Free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://primemeridianai.com/mini-map">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/mini-map.css">
+  <!-- Apollo Website Tracking -->
+  <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+  o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+  o.onload=function(){window.trackingFunctions.onLoad({appId:"69b2e785b0ac0e001572c2bb"})},
+  document.head.appendChild(o)}initApollo();</script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo"><img src="/images/logo.png" alt="Prime Meridian AI"><span>Prime Meridian AI</span></a>
+      <div class="nav__links" id="nav-links">
+        <a href="/" class="nav__link">Home</a>
+        <a href="/ai-audit.html" class="nav__link">The AI Audit</a>
+        <a href="/mini-map.html" class="nav__link">AI Mini-Map</a>
+        <a href="/about.html" class="nav__link">About</a>
+        <a href="/book.html" class="btn btn--primary btn--nav">Book a Discovery Call</a>
+      </div>
+      <button class="nav__toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="minimap" id="minimap-app">
+
+      <!-- Progress Bar -->
+      <div class="minimap__progress" id="progress-bar">
+        <div class="minimap__progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+
+      <!-- Screen 1: Welcome -->
+      <section class="minimap__screen active" id="screen-welcome">
+        <div class="container container--narrow">
+          <div class="minimap__hero">
+            <span class="section-header__eyebrow">Your AI Mini-Map</span>
+            <h1>Find the AI opportunities hiding in your business</h1>
+            <p class="minimap__subtitle">Pick your industry, rate a few processes, get your map. 3 minutes. Free. No sign-up.</p>
+            <p class="minimap__privacy">Your answers aren't stored. No tracking. Email is optional.</p>
+            <button class="btn btn--primary btn--large minimap__cta" data-next="screen-industry">Get started</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 2: Industry Selection -->
+      <section class="minimap__screen" id="screen-industry">
+        <div class="container container--narrow">
+          <button class="minimap__back" data-back>&larr; Back</button>
+          <div class="section-header">
+            <h2>What's your industry?</h2>
+            <p>We'll show you processes specific to your sector.</p>
+          </div>
+          <div class="minimap__industries" id="industry-grid">
+            <!-- Populated by JS from industries.json -->
+          </div>
+          <div class="minimap__industry-other">
+            <p>Don't see your industry?</p>
+            <div class="minimap__notify-form">
+              <input type="email" id="notify-email" placeholder="your@email.com" class="minimap__input">
+              <button class="btn btn--secondary" id="notify-btn">Notify me when it's added</button>
+            </div>
+            <p class="minimap__notify-thanks" id="notify-thanks" style="display:none">Thanks — we'll let you know.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 3: About You -->
+      <section class="minimap__screen" id="screen-about">
+        <div class="container container--narrow">
+          <button class="minimap__back" data-back>&larr; Back</button>
+          <div class="section-header">
+            <h2>Tell us a bit about you</h2>
+            <p>Three quick questions to personalise your results.</p>
+          </div>
+          <div class="minimap__questions">
+            <div class="minimap__question">
+              <label class="minimap__label">What's your role?</label>
+              <div class="minimap__options" data-field="role">
+                <button class="minimap__option" data-value="Owner/MD/Partner">Owner / MD / Partner</button>
+                <button class="minimap__option" data-value="Senior Manager">Senior Manager</button>
+                <button class="minimap__option" data-value="Manager">Manager</button>
+                <button class="minimap__option" data-value="Employee">Employee</button>
+              </div>
+            </div>
+            <div class="minimap__question">
+              <label class="minimap__label">How big is your team?</label>
+              <div class="minimap__options" data-field="team_size">
+                <button class="minimap__option" data-value="1-9">1-9</button>
+                <button class="minimap__option" data-value="10-30">10-30</button>
+                <button class="minimap__option" data-value="31-75">31-75</button>
+                <button class="minimap__option" data-value="76-150">76-150</button>
+                <button class="minimap__option" data-value="150+">150+</button>
+              </div>
+            </div>
+            <div class="minimap__question">
+              <label class="minimap__label">Where are you with AI?</label>
+              <div class="minimap__options" data-field="ai_stage">
+                <button class="minimap__option" data-value="Haven't started">Haven't started</button>
+                <button class="minimap__option" data-value="Tried a few tools">Tried a few tools</button>
+                <button class="minimap__option" data-value="Using regularly">Using regularly</button>
+                <button class="minimap__option" data-value="Want to go deeper">Want to go deeper</button>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn--primary btn--large minimap__cta" id="btn-to-rate" data-next="screen-rate" disabled>Continue</button>
+        </div>
+      </section>
+
+      <!-- Screen 4: Rate Processes -->
+      <section class="minimap__screen" id="screen-rate">
+        <div class="container container--narrow">
+          <button class="minimap__back" data-back>&larr; Back</button>
+          <div class="section-header">
+            <h2>Rate these processes</h2>
+            <p>For each one, tell us how much time it takes and how repetitive it is. Go with your gut.</p>
+          </div>
+          <div class="minimap__processes" id="process-list">
+            <!-- Populated by JS -->
+          </div>
+          <div class="minimap__rate-footer">
+            <span class="minimap__rated-count" id="rated-count">0 of 0 rated</span>
+            <button class="btn btn--primary btn--large" id="btn-see-map" disabled>See your map</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screen 5: Results -->
+      <section class="minimap__screen" id="screen-results">
+        <div class="container">
+          <div class="minimap__results-header">
+            <h2 id="results-headline">Your AI Mini-Map</h2>
+            <p id="results-subtitle"></p>
+          </div>
+
+          <div class="minimap__chart-container">
+            <canvas id="minimap-chart"></canvas>
+            <div class="minimap__quadrant-labels">
+              <span class="minimap__qlabel minimap__qlabel--tl">Strategic projects</span>
+              <span class="minimap__qlabel minimap__qlabel--tr">Quick wins</span>
+              <span class="minimap__qlabel minimap__qlabel--bl">Avoid</span>
+              <span class="minimap__qlabel minimap__qlabel--br">Nice to have</span>
+            </div>
+          </div>
+
+          <!-- Process detail panel (shown when dot is clicked) -->
+          <div class="minimap__detail" id="process-detail" style="display:none">
+            <h3 id="detail-name"></h3>
+            <div class="minimap__detail-tags">
+              <span class="minimap__tag" id="detail-quadrant"></span>
+              <span class="minimap__tag" id="detail-effort"></span>
+            </div>
+            <p id="detail-explanation"></p>
+          </div>
+
+          <!-- Segment-specific CTA -->
+          <div class="minimap__cta-section" id="segment-cta">
+            <!-- Populated by JS based on segment -->
+          </div>
+
+          <!-- Email capture -->
+          <div class="minimap__email-section" id="email-section">
+            <div class="card">
+              <h3>Save your results and get a detailed breakdown</h3>
+              <p>We'll email you a summary of your top opportunities with practical next steps.</p>
+              <div class="minimap__email-form">
+                <input type="email" id="results-email" placeholder="your@email.com" class="minimap__input">
+                <button class="btn btn--primary" id="btn-save-results">Send my results</button>
+              </div>
+              <p class="minimap__email-note">One email. No spam. Unsubscribe any time.</p>
+              <p class="minimap__email-thanks" id="email-thanks" style="display:none">Sent! Check your inbox.</p>
+            </div>
+          </div>
+
+          <div class="minimap__restart">
+            <button class="btn btn--secondary" id="btn-restart">Start again with a different industry</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__brand"><img src="/images/logo.png" alt="Prime Meridian AI"></div>
+          <p class="footer__tagline">AI strategy built around your actual business. Audits, automation, and clear guidance for professional services firms.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <div class="footer__links">
+            <a href="/">Home</a>
+            <a href="/ai-audit.html">The AI Audit</a>
+            <a href="/mini-map.html">AI Mini-Map</a>
+            <a href="/about.html">About</a>
+            <a href="/book.html">Book a Call</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <a href="mailto:hello@primemeridianai.com">hello@primemeridianai.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Prime Meridian AI</span>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mini-map.js"></script>
+</body>
+</html>
