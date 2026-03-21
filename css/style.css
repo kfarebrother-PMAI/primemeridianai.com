@@ -254,6 +254,7 @@ small {
 .nav__logo img {
   height: 40px;
   width: auto;
+  border-radius: 8px;
 }
 
 .nav__logo span {
