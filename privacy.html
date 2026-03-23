@@ -6,17 +6,37 @@
   <link rel="icon" type="image/png" href="/images/favicon-32.png" sizes="32x32">
   <link rel="icon" href="/images/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <title>Privacy Policy — Prime Meridian AI</title>
-  <meta name="description" content="Privacy policy for Prime Meridian AI. How we collect, use, and protect your data.">
+  <title>Privacy Notice — Prime Meridian AI</title>
+  <meta name="description" content="Privacy notice for Prime Meridian AI. How we collect, use, store, and protect your personal data.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    .privacy { padding-top: calc(var(--nav-height) + var(--space-3xl)); padding-bottom: var(--space-3xl); }
+    .privacy h1 { margin-bottom: var(--space-sm); }
+    .privacy .privacy__updated { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-xl); }
     .privacy h2 { margin-top: var(--space-2xl); margin-bottom: var(--space-md); font-size: var(--text-2xl); }
     .privacy h3 { margin-top: var(--space-xl); margin-bottom: var(--space-sm); font-size: var(--text-lg); }
+    .privacy h4 { margin-top: var(--space-lg); margin-bottom: var(--space-xs); font-size: var(--text-base); color: var(--color-text-primary); }
+    .privacy p, .privacy li { color: var(--color-text-secondary); line-height: 1.7; }
+    .privacy p { margin-bottom: var(--space-md); }
     .privacy ul { list-style: disc; padding-left: var(--space-xl); margin-bottom: var(--space-md); }
-    .privacy li { margin-bottom: var(--space-xs); color: var(--color-text-secondary); }
+    .privacy li { margin-bottom: var(--space-xs); }
+    .privacy strong { color: var(--color-text-primary); }
+    .privacy hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: var(--space-2xl) 0; }
+    .privacy table { width: 100%; border-collapse: collapse; margin-bottom: var(--space-md); font-size: var(--text-sm); }
+    .privacy th, .privacy td { padding: var(--space-sm) var(--space-md); text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--color-text-secondary); }
+    .privacy th { color: var(--color-text-primary); font-weight: 600; background: rgba(255,255,255,0.03); }
+    .privacy a { color: var(--color-gold); text-decoration: underline; }
+    .privacy .privacy__intro { font-size: var(--text-lg); color: var(--color-text-primary); margin-bottom: var(--space-lg); }
+    .privacy .privacy__note { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: var(--space-md) var(--space-lg); margin: var(--space-md) 0; }
+    .privacy .privacy__note p { margin-bottom: var(--space-xs); }
+    .privacy .privacy__note p:last-child { margin-bottom: 0; }
+    @media (max-width: 768px) {
+      .privacy table { font-size: 13px; }
+      .privacy th, .privacy td { padding: var(--space-xs) var(--space-sm); }
+    }
   </style>
   <!-- Cookie Consent + Apollo (consent-gated) -->
   <script src="/js/cookie-consent.js"></script>
@@ -42,21 +62,428 @@
   </nav>
 
   <main>
-
-    <section class="section privacy" style="padding-top: calc(var(--nav-height) + var(--space-3xl));">
+    <section class="section privacy">
       <div class="container container--narrow">
-        <h1>Privacy Notice</h1>
 
-        <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: var(--space-xl); margin: var(--space-xl) 0; text-align: center;">
-          <p style="font-size: var(--text-xl); font-weight: 600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">This page is a placeholder.</p>
-          <p style="color: var(--color-text-secondary); margin-bottom: var(--space-md);">Our full privacy notice is being prepared and will be published here before we launch. It will cover how we collect, use, store, and share personal data in line with UK GDPR and the Data Protection Act 2018.</p>
-          <p style="color: var(--color-text-secondary); margin-bottom: 0;">In the meantime, if you have any questions about how we handle your data, please contact <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a>.</p>
+        <h1>Privacy Notice</h1>
+        <p class="privacy__updated"><strong>Last updated:</strong> 23 March 2026</p>
+
+        <p class="privacy__intro">This notice explains how Prime Meridian AI collects, uses, stores, and shares personal data. It covers everyone we interact with: website visitors, people who use our tools, prospects we contact, people who attend meetings with us, and clients.</p>
+
+        <p>We take data protection seriously. As a business that audits how other organisations use AI, we hold ourselves to the standards we expect of others.</p>
+
+        <hr>
+
+        <h2>1. Who We Are</h2>
+
+        <p>Prime Meridian AI is a sole trader business operated by Kris Farebrother, providing AI audit and automation strategy services for professional services firms in the United Kingdom.</p>
+
+        <p><strong>Data controller:</strong> Kris Farebrother, trading as Prime Meridian AI<br>
+        <strong>Email:</strong> <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a><br>
+        <strong>ICO registration number:</strong> Pending (application submitted, reference will be added here)</p>
+
+        <p>We are registered with the Information Commissioner's Office (ICO) as a data controller.</p>
+
+        <hr>
+
+        <h2>2. What Data We Collect and Why</h2>
+
+        <p>We collect different types of personal data depending on how you interact with us. This section explains what we collect, why, and the legal basis we rely on.</p>
+
+        <h3>2a. When you visit our website</h3>
+
+        <p><strong>What we collect:</strong> Your IP address, device information (browser type, screen resolution), and pages visited. We use Apollo.io's website tracking to associate visits with publicly available company information (company name, industry, size, location). We do not track personal browsing history.</p>
+
+        <p><strong>Why:</strong> To understand which types of businesses are interested in our services, so we can tailor our content and outreach.</p>
+
+        <p><strong>Legal basis:</strong> Legitimate interest (understanding our audience). We have assessed that this interest does not override your privacy rights, given the data is limited to business-level identification and no personal profiles are built.</p>
+
+        <p><strong>Tracking technologies:</strong> The Apollo.io tracker uses browser local storage (not cookies) to associate visits with company information. See <a href="#cookies">Section 9 (Cookies and Similar Technologies)</a> for details and your choices.</p>
+
+        <h3>2b. When you use our AI Mini-Map tool</h3>
+
+        <p><strong>What we collect:</strong> Your email address, industry, role, team size, AI adoption stage, and the AI opportunity scores generated by the tool.</p>
+
+        <p><strong>Why:</strong> To deliver your personalised results by email, and (with your agreement) to follow up with relevant content about AI for your sector.</p>
+
+        <p><strong>Legal basis:</strong> Consent (you choose to provide your email and submit the form). You can withdraw consent at any time by contacting us or using the unsubscribe link in any email.</p>
+
+        <p><strong>Where your data goes:</strong></p>
+        <ul>
+          <li><strong>Brevo</strong> (email platform): stores your contact details and sends the results email. Brevo tracks whether the email is opened and whether links are clicked, so we can understand engagement.</li>
+          <li><strong>Attio</strong> (CRM): if your profile matches our ideal client criteria, we create a contact record to manage any future relationship. Legal basis for CRM storage: legitimate interest (managing business relationships and pipeline).</li>
+          <li><strong>Local database:</strong> your submission is logged for our records.</li>
+        </ul>
+
+        <h3>2c. When you book a discovery call</h3>
+
+        <p><strong>What we collect:</strong> Your name and email address (via Calendly).</p>
+
+        <p><strong>Why:</strong> To schedule and prepare for the call.</p>
+
+        <p><strong>Legal basis:</strong> Consent (you initiate the booking).</p>
+
+        <p><strong>Meeting recording:</strong> Our discovery calls are recorded and transcribed using Fireflies.ai. You will be informed of this in your booking confirmation email before the call. You can opt out of recording at any time, either by replying to the confirmation email or by asking at the start of the call. See <a href="#recording">Section 5 (Meeting Recording)</a> for full details.</p>
+
+        <h3>2d. When we contact you about our services</h3>
+
+        <p>We may contact business professionals by email to introduce our AI audit services. We do this where we believe there is a genuine and relevant reason to reach out.</p>
+
+        <p><strong>What data we use:</strong> Your name, work email address, job title, company name, industry, company size, and seniority. This information is sourced from Apollo.io's database of publicly available business contact information.</p>
+
+        <p><strong>Why:</strong> To reach business owners and decision-makers who may benefit from an AI audit.</p>
+
+        <p><strong>Legal basis:</strong> Legitimate interest (B2B prospecting). We have conducted a Legitimate Interest Assessment and concluded that:</p>
+        <ul>
+          <li>We only contact people in business decision-making roles at their work email addresses</li>
+          <li>Our emails are relevant to their professional responsibilities</li>
+          <li>We provide a clear and immediate opt-out in every email</li>
+          <li>We maintain a suppression list and honour all opt-out requests immediately</li>
+          <li>The impact on individuals is minimal (one or a small number of professional emails)</li>
+        </ul>
+
+        <p><strong>Your right to object:</strong> You have an absolute right to object to direct marketing. If you ask us to stop, we will do so immediately and suppress your details from all future outreach. Email <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a> or use the unsubscribe link in any email.</p>
+
+        <p><strong>Email tracking:</strong> Our outreach emails (sent via Apollo.io) track whether emails are opened and whether links are clicked. This helps us understand engagement and avoid contacting people who are not interested. If you prefer not to be tracked, most email clients allow you to disable image loading, which prevents open tracking.</p>
+
+        <p><strong>CRM integration:</strong> When a prospect engages with our outreach (replies, clicks, or books a call), their contact details may be synced from Apollo.io to Attio (our CRM) to manage the ongoing relationship.</p>
+
+        <div class="privacy__note">
+          <p><strong>Note for sole traders and partnerships:</strong> Under the Privacy and Electronic Communications Regulations (PECR), we only email sole traders and unincorporated partnerships where we have prior consent. Our cold outreach targets corporate subscribers (limited companies, LLPs) only, using the legitimate interest basis described above.</p>
         </div>
 
-        <p class="text-secondary" style="margin-top: var(--space-lg);">Prime Meridian AI is a sole trader business operated by Kris Farebrother, based in the United Kingdom.</p>
+        <h3>2e. During an AI Audit engagement</h3>
+
+        <p><strong>What we collect:</strong> Stakeholder interview recordings and transcripts, business process information described during interviews, attendee names and email addresses.</p>
+
+        <p><strong>Why:</strong> To analyse your business processes and identify AI automation opportunities. This is the core of the AI Audit service.</p>
+
+        <p><strong>Legal basis:</strong> Contract (to deliver the service you have engaged us to provide) and consent (for recording, obtained before each interview).</p>
+
+        <p><strong>AI processing:</strong> Interview transcripts are analysed using AI tools (see <a href="#ai-tools">Section 4</a>) to identify patterns, automation opportunities, and risks. No automated decisions are made about individuals. All analysis is reviewed by a human (Kris Farebrother) before being included in the audit deliverable.</p>
+
+        <p><strong>Confidentiality:</strong> We treat all information shared during an audit as confidential. We do not share client data with other clients or use it for marketing purposes. We are happy to sign a non-disclosure agreement or data sharing agreement before any engagement begins.</p>
+
+        <p><strong>Your data after the audit:</strong> You can request deletion of all interview recordings, transcripts, and analysis at any time after the audit is delivered. See <a href="#retention">Section 8 (Data Retention)</a> for standard retention periods.</p>
+
+        <h3>2f. When you interact with us via Telegram</h3>
+
+        <p>We operate a Telegram bot for internal business management. Messages sent to this bot (text, voice notes, or photos) are processed by Claude (Anthropic) to generate responses. This bot is not publicly available and is used solely for our own business operations.</p>
+
+        <p><strong>What we collect:</strong> Message content, Telegram user ID, and any attachments sent to the bot.</p>
+
+        <p><strong>Why:</strong> Internal business operations and task management.</p>
+
+        <p><strong>Legal basis:</strong> Legitimate interest (business operations management).</p>
+
+        <h3>2g. Internal communications monitoring</h3>
+
+        <p>We collect messages from our internal Slack workspace for business intelligence and operational record-keeping. This processing relates only to our own business communications and does not involve external individuals' data unless they are mentioned in the course of normal business discussion.</p>
+
+        <p><strong>What we collect:</strong> Messages from channels our intelligence bot has been invited to.</p>
+
+        <p><strong>Why:</strong> To maintain a searchable record of business communications and decisions.</p>
+
+        <p><strong>Legal basis:</strong> Legitimate interest (business operations and record-keeping).</p>
+
+        <hr>
+
+        <h2>3. Data We Obtain from Third Parties</h2>
+
+        <p>When we contact you proactively (Section 2d above), your data has not been provided by you directly. Under Article 14 of UK GDPR, we are required to tell you:</p>
+
+        <p><strong>Categories of data:</strong> Name, work email address, job title, company name, industry, company size, employee count, seniority level, and business location.</p>
+
+        <p><strong>Source:</strong> Apollo.io, a B2B sales intelligence platform that aggregates publicly available business information from company websites, professional networks, public filings, and other public sources.</p>
+
+        <p><strong>When we tell you:</strong> We will provide this privacy notice to you at first contact (included as a link in our initial email).</p>
+
+        <hr>
+
+        <h2 id="ai-tools">4. AI Tools and Automated Processing</h2>
+
+        <p>We use artificial intelligence tools as part of our business operations and service delivery. We believe in being transparent about this.</p>
+
+        <p><strong>Tools we use and what they process:</strong></p>
+
+        <table>
+          <thead>
+            <tr><th>Tool</th><th>Provider</th><th>What it processes</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Claude</strong></td><td>Anthropic (US)</td><td>Interview transcripts, business analysis, workspace data</td><td>AI-assisted analysis of audit findings, business operations</td></tr>
+            <tr><td><strong>Fireflies.ai</strong></td><td>Fireflies (US)</td><td>Meeting audio, transcripts, attendee details</td><td>Meeting recording and transcription</td></tr>
+            <tr><td><strong>Gemini</strong></td><td>Google (US)</td><td>Business metrics summaries, meeting highlights</td><td>Daily business intelligence synthesis</td></tr>
+            <tr><td><strong>Apollo.io</strong></td><td>Apollo (US)</td><td>Business contact data, website visitor data</td><td>Prospecting and website analytics</td></tr>
+          </tbody>
+        </table>
+
+        <p><strong>Important commitments:</strong></p>
+        <ul>
+          <li>None of our AI providers use your data to train AI models. Anthropic: opted out of training, 7-day API retention. Google Gemini: paid API tier, data not used for training or product improvement (logged only for abuse monitoring). Fireflies: contractually prohibits all vendors (including OpenAI and ASR providers) from using data for training, with zero-retention policies.</li>
+          <li>No automated decisions are made about you. All AI outputs are reviewed by a human before being acted upon or shared.</li>
+          <li>AI tools are used to assist analysis, not to replace human judgement. The AI Audit deliverable is a human-reviewed product.</li>
+        </ul>
+
+        <p><strong>Data sent to AI providers:</strong> When we use Claude to analyse interview transcripts, the transcript text (including speaker names) is sent to Anthropic's servers for processing. Anthropic retains API data for 7 days, then permanently deletes it. Anthropic does not use our data for model training (we have opted out). Anthropic holds SOC 2 Type II and ISO 42001 certifications.</p>
+
+        <hr>
+
+        <h2 id="recording">5. Meeting Recording and Transcription</h2>
+
+        <p>We use Fireflies.ai to record and transcribe business meetings, including discovery calls and audit interviews.</p>
+
+        <p><strong>How it works:</strong></p>
+        <ul>
+          <li>Fireflies joins the video call as a visible participant (you will see it in the call)</li>
+          <li>Fireflies sends an email notification approximately one hour before the meeting</li>
+          <li>The call is recorded (audio) and transcribed (text with speaker attribution)</li>
+          <li>Summaries and action items are automatically extracted</li>
+        </ul>
+
+        <p><strong>Your rights regarding recording:</strong></p>
+        <ul>
+          <li>You will always be informed before recording begins</li>
+          <li>For discovery calls: recording consent is included in the Calendly booking confirmation</li>
+          <li>For audit interviews: verbal consent is obtained at the start of each session</li>
+          <li>You can opt out of recording at any time. If you prefer not to be recorded, tell us and we will switch Fireflies off. You will not be disadvantaged in any way.</li>
+          <li>You can request deletion of your recording and transcript at any time</li>
+        </ul>
+
+        <p><strong>Where recording data is stored:</strong></p>
+        <ul>
+          <li>Fireflies.ai servers (United States, AWS and Google Cloud infrastructure)</li>
+          <li>Our local database (United Kingdom and Azure West Europe)</li>
+          <li>Attio CRM (meeting notes summary only, United Kingdom / EU data centres)</li>
+        </ul>
+
+        <p><strong>Retention:</strong> Recordings and transcripts are retained for 12 months after the audit deliverable is provided, then deleted. You can request earlier deletion at any time.</p>
+
+        <hr>
+
+        <h2>6. Who We Share Your Data With</h2>
+
+        <p>We do not sell, rent, or trade your personal data. We share data only with the service providers we need to operate our business:</p>
+
+        <table>
+          <thead>
+            <tr><th>Service</th><th>Provider Location</th><th>What they receive</th><th>Their privacy policy</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Apollo.io</strong></td><td>United States</td><td>Website visitor data, prospect contact data</td><td>apollo.io/privacy</td></tr>
+            <tr><td><strong>Attio</strong></td><td>United Kingdom (EU data centres)</td><td>Contact details, deal information, meeting notes</td><td>attio.com/legal/privacy</td></tr>
+            <tr><td><strong>Brevo</strong></td><td>France (EU data centres)</td><td>Email addresses, contact attributes</td><td>brevo.com/legal/privacypolicy</td></tr>
+            <tr><td><strong>Fireflies.ai</strong></td><td>United States</td><td>Meeting recordings, transcripts, attendee details</td><td>fireflies.ai/privacy-policy</td></tr>
+            <tr><td><strong>Anthropic (Claude)</strong></td><td>United States</td><td>Interview transcripts, business analysis data</td><td>anthropic.com/privacy</td></tr>
+            <tr><td><strong>Google (Gemini)</strong></td><td>United States</td><td>Business metrics summaries</td><td>policies.google.com/privacy</td></tr>
+            <tr><td><strong>Calendly</strong></td><td>United States</td><td>Name, email (for bookings)</td><td>calendly.com/privacy</td></tr>
+            <tr><td><strong>GitHub Pages</strong></td><td>United States</td><td>Website hosting (no personal data collected)</td><td>github.com/privacy</td></tr>
+          </tbody>
+        </table>
+
+        <p>Where personal data is processed, we have Data Processing Agreements (or equivalent contractual terms) in place with each provider, as required by Article 28 of UK GDPR. These agreements ensure that our processors handle your data only on our instructions and in accordance with applicable data protection law.</p>
+
+        <hr>
+
+        <h2>7. International Data Transfers</h2>
+
+        <p>Some of our service providers are based in the United States. When your personal data is transferred outside the United Kingdom, we ensure appropriate safeguards are in place.</p>
+
+        <p><strong>Providers certified under the UK Extension to the EU-US Data Privacy Framework (DPF):</strong></p>
+
+        <table>
+          <thead>
+            <tr><th>Provider</th><th>DPF Certified</th><th>Data Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Apollo.io</td><td>Yes (UK Extension)</td><td>United States</td></tr>
+            <tr><td>Calendly</td><td>Yes (UK Extension, participant #6050)</td><td>United States (Google Cloud)</td></tr>
+            <tr><td>Fireflies.ai</td><td>Yes (UK Extension)</td><td>United States (AWS, Google Cloud)</td></tr>
+            <tr><td>Brevo (Sendinblue Inc.)</td><td>Yes (UK Extension)</td><td>EU (France/Germany). US subsidiary holds DPF certification for any US-bound transfers.</td></tr>
+            <tr><td>Google (Gemini)</td><td>Yes (UK Extension)</td><td>United States</td></tr>
+            <tr><td>GitHub (Microsoft)</td><td>Yes (UK Extension, via Microsoft)</td><td>United States. Static website hosting only; no personal data is collected or processed by GitHub Pages.</td></tr>
+          </tbody>
+        </table>
+
+        <p>DPF certification provides an adequate level of protection recognised by the UK government.</p>
+
+        <p><strong>Providers relying on Standard Contractual Clauses:</strong></p>
+
+        <table>
+          <thead>
+            <tr><th>Provider</th><th>Transfer Mechanism</th><th>Data Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Anthropic (Claude)</td><td>EU SCCs + UK Addendum</td><td>United States (AWS)</td></tr>
+          </tbody>
+        </table>
+
+        <p>Anthropic is not DPF-certified. Transfers are protected by Standard Contractual Clauses with the UK Addendum (the ICO-approved mechanism). Anthropic retains API data for 7 days, does not use our data for model training (we have opted out), and holds SOC 2 Type II and ISO 42001 certifications.</p>
+
+        <p><strong>Providers based in the UK or EU (no international transfer required):</strong></p>
+
+        <table>
+          <thead>
+            <tr><th>Provider</th><th>Location</th><th>Data Location</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Attio (CRM)</td><td>United Kingdom (London)</td><td>EU data centres (Google Cloud)</td></tr>
+            <tr><td>Microsoft Azure</td><td>West Europe region</td><td>Netherlands (EEA)</td></tr>
+          </tbody>
+        </table>
+
+        <p>If you would like more information about the specific safeguards in place for any transfer, please contact us.</p>
+
+        <hr>
+
+        <h2 id="retention">8. Data Retention</h2>
+
+        <p>We keep your data only as long as we need it. Here are our standard retention periods:</p>
+
+        <table>
+          <thead>
+            <tr><th>Data type</th><th>Retention period</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Website visitor data (Apollo)</td><td>90 days (per Apollo's policy)</td></tr>
+            <tr><td>Mini-Map submissions</td><td>24 months after submission, or until you request deletion or withdraw consent (whichever is sooner)</td></tr>
+            <tr><td>Discovery call bookings</td><td>Duration of business relationship</td></tr>
+            <tr><td>Cold outreach contact data</td><td>Until you opt out (then suppressed, not deleted, to prevent re-contact)</td></tr>
+            <tr><td>CRM contact records</td><td>Duration of business relationship + 6 years (legal/accounting requirements)</td></tr>
+            <tr><td>Meeting recordings and transcripts</td><td>12 months after audit delivery, then deleted</td></tr>
+            <tr><td>AI processing data (Anthropic)</td><td>7 days (Anthropic's API data retention policy)</td></tr>
+            <tr><td>Business correspondence</td><td>Up to 6 years (legal/accounting requirements)</td></tr>
+            <tr><td>Financial records</td><td>6 years (HMRC requirement)</td></tr>
+          </tbody>
+        </table>
+
+        <p>When data reaches the end of its retention period, it is securely deleted or anonymised.</p>
+
+        <hr>
+
+        <h2 id="cookies">9. Cookies and Similar Technologies</h2>
+
+        <p>Our website uses the following tracking and storage technologies:</p>
+
+        <h4>Apollo.io Website Tracker</h4>
+        <ul>
+          <li><strong>Type:</strong> Third-party tracking script</li>
+          <li><strong>Purpose:</strong> Identifies businesses visiting our website using IP address and publicly available company data</li>
+          <li><strong>Storage:</strong> Uses browser local storage (not cookies) to maintain a visitor identifier and manage tracking state. Specific keys: anonymous visitor ID (persistent), tracking consent flag (24 hours), event queue (until processed).</li>
+          <li><strong>Legal basis:</strong> Consent. The tracker only loads if you accept non-essential tracking.</li>
+        </ul>
+
+        <h4>Cookie Consent Preference</h4>
+        <ul>
+          <li><strong>Type:</strong> First-party local storage</li>
+          <li><strong>Purpose:</strong> Remembers whether you accepted or rejected non-essential tracking</li>
+          <li><strong>Storage:</strong> <code>pmai_cookie_consent</code> key in local storage (persistent until you change your preference)</li>
+          <li><strong>Legal basis:</strong> Strictly necessary (required to respect your tracking preference)</li>
+        </ul>
+
+        <h4>Calendly Widget</h4>
+        <ul>
+          <li><strong>Type:</strong> Third-party embed (on booking pages)</li>
+          <li><strong>Cookies:</strong> May set functional cookies required for the booking process</li>
+          <li><strong>Legal basis:</strong> Strictly necessary (required to provide the booking service you requested)</li>
+        </ul>
+
+        <p><strong>Your choices:</strong> When you first visit our website, a consent banner asks whether you accept or reject non-essential tracking. The Apollo tracker only loads if you accept. You can change your choice at any time by clicking "Cookie Settings" in the footer of any page. Your preference is stored locally on your device and is not sent to our servers.</p>
+
+        <p>We do not use Google Analytics or any other analytics platform at this time.</p>
+
+        <hr>
+
+        <h2>10. Your Rights</h2>
+
+        <p>Under UK GDPR, you have the following rights:</p>
+
+        <ul>
+          <li><strong>Right of access:</strong> Request a copy of the personal data we hold about you</li>
+          <li><strong>Right to rectification:</strong> Ask us to correct inaccurate or incomplete data</li>
+          <li><strong>Right to erasure:</strong> Ask us to delete your data (subject to legal retention requirements)</li>
+          <li><strong>Right to restriction:</strong> Ask us to limit how we use your data while a concern is resolved</li>
+          <li><strong>Right to data portability:</strong> Receive your data in a structured, machine-readable format</li>
+          <li><strong>Right to object:</strong> Object to processing based on legitimate interest, including direct marketing. For direct marketing, this is an absolute right and we will comply immediately.</li>
+          <li><strong>Right to withdraw consent:</strong> Where we rely on your consent, you can withdraw it at any time. This does not affect the lawfulness of processing carried out before withdrawal.</li>
+          <li><strong>Rights relating to automated decision-making:</strong> We do not make solely automated decisions that produce legal or similarly significant effects on you. All AI-assisted analysis is reviewed by a human.</li>
+        </ul>
+
+        <p><strong>How to exercise your rights:</strong> Email <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a>. We will respond within one month. There is no fee for most requests.</p>
+
+        <p><strong>If you are not satisfied:</strong> You have the right to lodge a complaint with the Information Commissioner's Office (ICO):</p>
+
+        <ul>
+          <li>Website: <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a></li>
+          <li>Telephone: 0303 123 1113</li>
+          <li>Post: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</li>
+        </ul>
+
+        <p>We would appreciate the chance to address your concerns before you contact the ICO.</p>
+
+        <hr>
+
+        <h2>11. Children's Data</h2>
+
+        <p>Our services are designed for business professionals. We do not knowingly collect or process personal data from children under the age of 18. If you believe we have inadvertently collected data from a child, please contact us at <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a> and we will delete it promptly.</p>
+
+        <hr>
+
+        <h2>12. Our Status as Controller or Processor</h2>
+
+        <p><strong>For most of our processing</strong> (website visitors, outreach, CRM, our own business operations), we are the <strong>data controller</strong>. We decide what data to collect and how to use it.</p>
+
+        <p><strong>During client engagements</strong> (AI Audits), the position depends on the arrangement:</p>
+        <ul>
+          <li>We are typically a <strong>separate data controller</strong> or <strong>joint controller</strong> with the client, because we determine the methodology, interview approach, and analysis methods.</li>
+          <li>Where a client instructs us to process specific data in a specific way, we may act as a <strong>data processor</strong> under a Data Processing Agreement.</li>
+          <li>We will agree the appropriate arrangement with each client before any personal data is shared, and document it in our engagement terms.</li>
+        </ul>
+
+        <hr>
+
+        <h2>13. Data Security</h2>
+
+        <p>We take appropriate technical and organisational measures to protect your data:</p>
+
+        <ul>
+          <li>Data encrypted in transit (HTTPS) and at rest</li>
+          <li>Access to systems restricted to authorised personnel (sole trader: Kris Farebrother only)</li>
+          <li>Strong passwords and multi-factor authentication on all accounts</li>
+          <li>Regular review of third-party service provider security practices</li>
+          <li>Local databases stored on encrypted devices</li>
+          <li>Server infrastructure hosted in Microsoft Azure with enterprise-grade security</li>
+        </ul>
+
+        <p>We do not store payment card information. Any payments are processed through third-party payment providers with their own security certifications.</p>
+
+        <hr>
+
+        <h2>14. Changes to This Notice</h2>
+
+        <p>We may update this notice from time to time to reflect changes in our practices, services, or legal requirements. The "last updated" date at the top will always show the most recent version.</p>
+
+        <p>For significant changes that affect how we use your data, we will make reasonable efforts to notify you directly (for example, by email if we hold your contact details).</p>
+
+        <hr>
+
+        <h2>15. Working with Regulated Sectors</h2>
+
+        <p>We work with professional services firms in regulated sectors, including law firms (SRA-regulated), accountancy practices (ICAEW/ACCA-regulated), and recruitment agencies. We understand the heightened data protection expectations in these sectors.</p>
+
+        <p><strong>For regulated-sector clients, we offer:</strong></p>
+        <ul>
+          <li>Non-disclosure agreements and confidentiality agreements before any data is shared</li>
+          <li>Data sharing agreements or Data Processing Agreements as appropriate</li>
+          <li>Written confirmation that client data is not used for AI model training</li>
+          <li>Documented data handling procedures, retention periods, and deletion processes</li>
+          <li>Willingness to discuss specific regulatory requirements (SRA confidentiality, ICAEW ethics, etc.)</li>
+        </ul>
+
+        <p>If you are evaluating us as a vendor and need specific assurances about data handling, please contact <a href="mailto:kris@primemeridianai.com">kris@primemeridianai.com</a>. We are happy to provide detailed responses to vendor due diligence questionnaires.</p>
+
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
