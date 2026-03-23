@@ -16,11 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Apollo Website Tracking -->
-  <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-  o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-  o.onload=function(){window.trackingFunctions.onLoad({appId:"69b2e785b0ac0e001572c2bb"})},
-  document.head.appendChild(o)}initApollo();</script>
+  <!-- Cookie Consent + Apollo (consent-gated) -->
+  <script src="/js/cookie-consent.js"></script>
 </head>
 <body>
 
@@ -110,18 +107,30 @@
         </div>
         <div class="grid grid--2 reveal-stagger">
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="16" r="2"/><circle cx="13" cy="10" r="2"/><circle cx="17" cy="7" r="1.5"/><line x1="3" y1="21" x2="21" y2="3" stroke-dasharray="2 3" opacity="0.3"/></svg>
+            </div>
             <h3 class="card__title">Opportunity matrix</h3>
             <p class="card__text">Every AI and automation opportunity in your business, plotted on a two-dimensional grid: impact (how much difference it makes) versus effort (how hard it is to implement). Your starting point is clear at a glance.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
             <h3 class="card__title">Risk register</h3>
             <p class="card__text">AI isn't risk-free. The report flags data sensitivity, client confidentiality, accuracy concerns, and change management challenges specific to your business and sector.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><line x1="5" y1="8" x2="5" y2="20"/><line x1="12" y1="8" x2="12" y2="20"/><line x1="19" y1="8" x2="19" y2="20"/><rect x="3" y="12" width="4" height="4" rx="1" opacity="0.4"/><rect x="10" y="10" width="4" height="6" rx="1" opacity="0.4"/><rect x="17" y="14" width="4" height="4" rx="1" opacity="0.4"/></svg>
+            </div>
             <h3 class="card__title">Implementation roadmap</h3>
             <p class="card__text">Not just "what to prioritise" but a suggested sequence — do this, then this, then this — with realistic timelines and effort estimates for each step.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><circle cx="8" cy="10" r="2"/><path d="M14 9h4" opacity="0.5"/><path d="M14 12h3" opacity="0.5"/></svg>
+            </div>
             <h3 class="card__title">Walkthrough call</h3>
             <p class="card__text">A 45-minute call to walk through the findings together. Ask questions, challenge the analysis, discuss which opportunities to pursue first. The report should make sense to you — not just to a consultant.</p>
           </div>
@@ -228,6 +237,7 @@
       <div class="footer__bottom">
         <span>&copy; 2026 Prime Meridian AI</span>
         <a href="/privacy.html">Privacy Policy</a>
+        <a href="#" id="cookie-settings-link">Cookie Settings</a>
       </div>
     </div>
   </footer>

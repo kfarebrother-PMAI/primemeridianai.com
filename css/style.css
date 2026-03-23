@@ -514,10 +514,21 @@ small {
 }
 
 .card__icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   margin-bottom: var(--space-md);
   color: var(--color-accent);
+  background: rgba(212, 168, 83, 0.06);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .card__title {
@@ -940,6 +951,83 @@ small {
 }
 
 
+/* --- Decorative Accents --- */
+
+/* Subtle corner accent on section headers */
+.section-header__eyebrow::before,
+.section-header__eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+.section-header__eyebrow::before {
+  margin-right: var(--space-sm);
+}
+
+.section-header__eyebrow::after {
+  margin-left: var(--space-sm);
+}
+
+/* Gold accent dot separator between card icon and title */
+.card__icon::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  margin-top: var(--space-sm);
+  opacity: 0.6;
+}
+
+/* Subtle grid dots background on alt sections */
+.section--alt {
+  background-image: radial-gradient(circle, rgba(212, 168, 83, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Accent line on steps connecting the numbers */
+.step::after {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 78px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  opacity: 0.15;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+/* Hero eyebrow gets the same flanking lines */
+.hero__eyebrow::before,
+.hero__eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-accent);
+  vertical-align: middle;
+  opacity: 0.4;
+}
+
+.hero__eyebrow::before {
+  margin-right: var(--space-sm);
+}
+
+.hero__eyebrow::after {
+  margin-left: var(--space-sm);
+}
+
+
 /* --- Utility Classes --- */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -1048,6 +1136,10 @@ main {
     gap: var(--space-md);
   }
 
+  .step::after {
+    display: none;
+  }
+
   .profile {
     gap: var(--space-xl);
   }
@@ -1072,5 +1164,112 @@ main {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============================================
+   Cookie Consent Banner
+   ============================================ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+  animation: cookieSlideUp 0.3s ease-out;
+}
+
+.cookie-banner--hidden {
+  animation: cookieSlideDown 0.3s ease-in forwards;
+}
+
+@keyframes cookieSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes cookieSlideDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+.cookie-banner__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.cookie-banner__text {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cookie-banner__text a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.cookie-banner__buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.cookie-banner__btn {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cookie-banner__btn--accept {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+.cookie-banner__btn--accept:hover {
+  background: var(--color-accent-hover);
+}
+
+.cookie-banner__btn--reject {
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.cookie-banner__btn--reject:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text);
+}
+
+#cookie-settings-link {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .cookie-banner__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookie-banner__buttons {
+    width: 100%;
+    justify-content: center;
   }
 }

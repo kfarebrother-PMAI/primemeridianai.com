@@ -16,11 +16,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Apollo Website Tracking -->
-  <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-  o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-  o.onload=function(){window.trackingFunctions.onLoad({appId:"69b2e785b0ac0e001572c2bb"})},
-  document.head.appendChild(o)}initApollo();</script>
+  <!-- Cookie Consent + Apollo (consent-gated) -->
+  <script src="/js/cookie-consent.js"></script>
 </head>
 <body>
 
@@ -67,21 +64,21 @@
         <div class="grid grid--3 reveal-stagger">
           <div class="card reveal">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="4 3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
             </div>
             <h3 class="card__title">Generic advice doesn't fit</h3>
             <p class="card__text">Every AI guide seems written for tech companies. Your accountancy practice, law firm, or recruitment agency has its own processes — and its own opportunities.</p>
           </div>
           <div class="card reveal">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/><path d="M21.7 13.5A10 10 0 0 1 12 22" stroke-dasharray="3 2" opacity="0.5"/></svg>
             </div>
             <h3 class="card__title">You're already stretched</h3>
             <p class="card__text">You can't afford to waste time experimenting with tools that might not be right. And you can't afford to wait while your competitors figure it out first.</p>
           </div>
           <div class="card reveal">
             <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
             </div>
             <h3 class="card__title">You want clarity, not confusion</h3>
             <p class="card__text">You've attended the webinar. You've tried ChatGPT. What you actually need is a clear plan — specific to your business — that you can act on.</p>
@@ -148,18 +145,30 @@
         </div>
         <div class="grid grid--2 reveal-stagger">
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a4 4 0 0 0-4 4c0 2.2 1.8 4 4 4"/><path d="M12 10a4 4 0 0 1 4 4c0 2.2-1.8 4-4 4"/><circle cx="12" cy="14" r="1" fill="currentColor" stroke="none"/><path d="M12 2v8"/><path d="M4.93 4.93l2.83 2.83" opacity="0.4"/><path d="M19.07 4.93l-2.83 2.83" opacity="0.4"/></svg>
+            </div>
             <h3 class="card__title">Your business, not a template</h3>
             <p class="card__text">Every audit is built from conversations with your actual team about their actual work. No generic frameworks. No tick-box questionnaires. Your opportunities are unique — the audit should be too.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="16" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="12" cy="12" r="1.5"/><line x1="3" y1="21" x2="21" y2="3" stroke-dasharray="2 3" opacity="0.3"/></svg>
+            </div>
             <h3 class="card__title">A map, not a sales pitch</h3>
             <p class="card__text">The audit is the product. You get a complete map of your AI opportunities — ranked by impact and effort — and you decide what to act on. No lock-in. No upsell pressure.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="8" x2="16" y2="8" opacity="0.5"/><line x1="8" y1="12" x2="13" y2="12" opacity="0.5"/></svg>
+            </div>
             <h3 class="card__title">Plain English, not jargon</h3>
             <p class="card__text">You won't need a technical translator. The report is written for business owners who want to understand their options — not for developers who already know the answer.</p>
           </div>
           <div class="card reveal">
+            <div class="card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
             <h3 class="card__title">Designed for 10-150 people</h3>
             <p class="card__text">Too big for one person to handle alone. Too small for McKinsey to care about. This is the size of business where AI makes the biggest difference — and where the right guidance is hardest to find.</p>
           </div>
@@ -208,6 +217,7 @@
       <div class="footer__bottom">
         <span>&copy; 2026 Prime Meridian AI</span>
         <a href="/privacy.html">Privacy Policy</a>
+        <a href="#" id="cookie-settings-link">Cookie Settings</a>
       </div>
     </div>
   </footer>

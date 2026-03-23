@@ -17,11 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/mini-map.css">
-  <!-- Apollo Website Tracking -->
-  <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-  o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-  o.onload=function(){window.trackingFunctions.onLoad({appId:"69b2e785b0ac0e001572c2bb"})},
-  document.head.appendChild(o)}initApollo();</script>
+  <!-- Cookie Consent + Apollo (consent-gated) -->
+  <script src="/js/cookie-consent.js"></script>
 </head>
 <body>
 
@@ -188,7 +185,7 @@
                 <input type="email" id="results-email" placeholder="your@email.com" class="minimap__input">
                 <button class="btn btn--primary" id="btn-save-results">Send my results</button>
               </div>
-              <p class="minimap__email-note">One email. No spam. Unsubscribe any time.</p>
+              <p class="minimap__email-note">By submitting, you agree to receive your results by email. We'll also add you to our mailing list for occasional AI insights. Unsubscribe any time. See our <a href="/privacy.html">privacy policy</a>.</p>
               <p class="minimap__email-thanks" id="email-thanks" style="display:none">Sent! Check your inbox.</p>
             </div>
           </div>
@@ -227,6 +224,7 @@
       <div class="footer__bottom">
         <span>&copy; 2026 Prime Meridian AI</span>
         <a href="/privacy.html">Privacy Policy</a>
+        <a href="#" id="cookie-settings-link">Cookie Settings</a>
       </div>
     </div>
   </footer>
