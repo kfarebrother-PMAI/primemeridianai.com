@@ -357,6 +357,7 @@
           borderWidth: 2,
           hoverBackgroundColor: QUADRANT_COLORS[q].border,
           hoverBorderWidth: 3,
+          clip: false,
         });
       }
     });
