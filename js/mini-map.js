@@ -6,9 +6,10 @@
  *   2. Data loader — fetches industries.json
  *   3. Rating handler — captures time + repetitiveness per process
  *   4. Scoring engine — computes impact/effort coordinates
- *   5. Chart renderer — Chart.js scatter with quadrants
- *   6. Segmentation engine — HOT/WARM/SOLOPRENEUR/COMMUNITY
- *   7. Email handler — POSTs to AIOS server API
+ *   5. Shareable state — URL hash encoding/decoding for bookmarks + sharing
+ *   6. Chart renderer — Chart.js scatter with quadrants
+ *   7. Segmentation engine — HOT/WARM/SOLOPRENEUR/COMMUNITY + sector demo CTA
+ *   8. Email handler — POSTs to AIOS server API
  */
 
 (function () {
@@ -26,6 +27,14 @@
     law: '\u{2696}',          // scales
     recruitment: '\u{1F465}', // people
     marketing: '\u{1F3A8}',  // palette
+  };
+
+  // Sector demo links — keyed by Mini-Map industry ID
+  const SECTOR_DEMO_LINKS = {
+    accountancy: { name: 'Hadley Marshall LLP (Accountancy)', url: 'https://blueprint-advisor.lovable.app/' },
+    law:         { name: 'Whitfield Carr Solicitors (Law)', url: 'https://roadmap-whisperer-44.lovable.app/' },
+    recruitment: { name: 'Kinsley Archer Recruitment', url: 'https://ai-compass-guide-98.lovable.app/' },
+    marketing:   { name: 'Ember & Oak (Marketing & Creative)', url: 'https://strategy-compass-82.lovable.app/' },
   };
 
   const QUADRANT_COLORS = {
@@ -109,6 +118,7 @@
     } catch (err) {
       console.error('Failed to load industries:', err);
     }
+    return industries;
   }
 
   function renderIndustryGrid() {
@@ -305,7 +315,59 @@
   }
 
   // -----------------------------------------------------------------------
-  // 6. Chart Renderer
+  // 6. Shareable State (URL hash encoding)
+  // -----------------------------------------------------------------------
+
+  function encodeState() {
+    const state = {
+      i: selectedIndustry ? selectedIndustry.id : null,
+      r: aboutAnswers.role,
+      t: aboutAnswers.team_size,
+      a: aboutAnswers.ai_stage,
+      p: processRatings,
+    };
+    try {
+      return btoa(JSON.stringify(state));
+    } catch { return null; }
+  }
+
+  function decodeState(hash) {
+    try {
+      return JSON.parse(atob(hash));
+    } catch { return null; }
+  }
+
+  function saveStateToUrl() {
+    const encoded = encodeState();
+    if (encoded) {
+      history.replaceState(null, '', '#' + encoded);
+    }
+  }
+
+  function restoreFromUrl() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return false;
+    const state = decodeState(hash);
+    if (!state || !state.i || !state.p) return false;
+
+    // Restore industry
+    selectedIndustry = industries.find(ind => ind.id === state.i);
+    if (!selectedIndustry) return false;
+
+    // Restore answers and ratings
+    aboutAnswers = { role: state.r, team_size: state.t, ai_stage: state.a };
+    processRatings = state.p;
+
+    // Compute and render
+    scoredProcesses = computeScores();
+    renderResults();
+    showScreen('screen-results');
+    screenHistory.push('screen-results');
+    return true;
+  }
+
+  // -----------------------------------------------------------------------
+  // 7. Chart Renderer
   // -----------------------------------------------------------------------
 
   function renderResults() {
@@ -324,6 +386,9 @@
 
     renderChart();
     renderSegmentCTA();
+    renderSectorDemo();
+    renderBookmarkNote();
+    saveStateToUrl();
   }
 
   function renderChart() {
@@ -504,7 +569,7 @@
   }
 
   // -----------------------------------------------------------------------
-  // 7. Segmentation Engine
+  // 8. Segmentation Engine
   // -----------------------------------------------------------------------
 
   function getSegment() {
@@ -527,35 +592,73 @@
       HOT: `
         <div class="card">
           <h3>You're exactly who we built this for</h3>
-          <p>Owner-led, right-sized team, professional services. We help businesses like yours turn these opportunities into action — with a full AI audit tailored to your team.</p>
+          <p>Owner-led, right-sized team, professional services. We help businesses like yours turn these opportunities into action with a full AI Audit tailored to your team.</p>
           <a href="/book.html" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Book a free discovery call</a>
           <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">30 minutes. No obligation. We'll talk about what you just saw on your map.</p>
         </div>`,
       WARM: `
         <div class="card">
           <h3>Want to go deeper?</h3>
-          <p>Your map shows where the opportunities are. Our YouTube channel breaks down exactly how businesses like yours are acting on them — real examples, no fluff.</p>
+          <p>Your map shows where the opportunities are. Our YouTube channel breaks down exactly how businesses like yours are acting on them. Real examples, no fluff.</p>
           <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Watch on YouTube</a>
         </div>`,
       SOLOPRENEUR: `
         <div class="card">
           <h3>Flying solo? These tools can help now.</h3>
-          <p>As a small team, you don't need a full audit — you need the right tools. Our YouTube channel covers the best AI tools for solo and micro businesses.</p>
+          <p>As a small team, you don't need a full audit. You need the right tools. Our YouTube channel covers the best AI tools for solo and micro businesses.</p>
           <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Watch on YouTube</a>
         </div>`,
       COMMUNITY: `
         <div class="card">
-          <h3>Share this with your team</h3>
-          <p>Even if you're not the decision-maker, this map is useful context. Share it with whoever's thinking about AI in your business.</p>
-          <button class="btn btn--primary btn--large" style="margin-top: var(--space-md)" onclick="navigator.clipboard.writeText(window.location.href).then(() => this.textContent = 'Link copied!')">Copy link to share</button>
+          <h3>Useful for someone else in your business?</h3>
+          <p>This link contains your exact results. Send it to whoever's thinking about AI in your organisation and they'll see the same map you're looking at now.</p>
+          <button class="btn btn--primary btn--large" style="margin-top: var(--space-md)" id="btn-share-results">Copy link to share your results</button>
+          <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">They can also do their own assessment by starting fresh.</p>
         </div>`,
     };
 
     container.innerHTML = ctas[segment] || ctas.COMMUNITY;
+
+    // Bind share button (uses stateful URL)
+    const shareBtn = document.getElementById('btn-share-results');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          shareBtn.textContent = 'Link copied!';
+          setTimeout(() => { shareBtn.textContent = 'Copy link to share your results'; }, 3000);
+        });
+      });
+    }
+  }
+
+  function renderSectorDemo() {
+    const container = document.getElementById('sector-demo-cta');
+    if (!container || !selectedIndustry) return;
+
+    const demo = SECTOR_DEMO_LINKS[selectedIndustry.id];
+    if (!demo) {
+      container.style.display = 'none';
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="card">
+        <h3>See what a full AI Audit looks like</h3>
+        <p>Your Mini-Map is a quick scan. A full AI Audit goes much deeper: team interviews, AI-assisted analysis, and an interactive Opportunity Map. Here's an example for a fictional ${selectedIndustry.name.toLowerCase()} firm.</p>
+        <a href="${demo.url}" target="_blank" class="btn btn--outline btn--large" style="margin-top: var(--space-md)">Explore the ${selectedIndustry.name} demo</a>
+        <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">Interactive demo. Fictional company, real methodology.</p>
+      </div>`;
+    container.style.display = 'block';
+  }
+
+  function renderBookmarkNote() {
+    const container = document.getElementById('bookmark-note');
+    if (!container) return;
+    container.innerHTML = `<p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-md);">Bookmark this page to keep your results. The URL saves your answers.</p>`;
   }
 
   // -----------------------------------------------------------------------
-  // 8. Email Handler
+  // 9. Email Handler
   // -----------------------------------------------------------------------
 
   const btnSaveResults = document.getElementById('btn-save-results');
@@ -615,7 +718,7 @@
   }
 
   // -----------------------------------------------------------------------
-  // 9. Restart
+  // 10. Restart
   // -----------------------------------------------------------------------
 
   const btnRestart = document.getElementById('btn-restart');
@@ -628,6 +731,9 @@
       scoredProcesses = [];
       screenHistory.length = 0;
       screenHistory.push('screen-welcome');
+
+      // Clear URL hash
+      history.replaceState(null, '', window.location.pathname);
 
       // Reset UI
       document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
@@ -658,6 +764,14 @@
   // Init
   // -----------------------------------------------------------------------
 
-  loadIndustries();
+  async function init() {
+    await loadIndustries();
+    // If URL has encoded state, restore directly to results
+    if (window.location.hash.length > 1) {
+      restoreFromUrl();
+    }
+  }
+
+  init();
 
 })();
