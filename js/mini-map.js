@@ -627,7 +627,6 @@
   }
 
   function renderActionButtons() {
-    const saveBtn = document.getElementById('btn-save-link');
     const shareBtn = document.getElementById('btn-share-link');
     const confirm = document.getElementById('action-confirm');
 
@@ -636,14 +635,6 @@
       confirm.textContent = msg;
       confirm.style.display = 'block';
       setTimeout(() => { confirm.style.display = 'none'; }, 4000);
-    }
-
-    if (saveBtn) {
-      saveBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          showConfirm('Link copied! Paste it somewhere safe to come back to these results any time.');
-        });
-      });
     }
 
     if (shareBtn) {
