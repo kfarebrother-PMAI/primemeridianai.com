@@ -387,7 +387,7 @@
     renderChart();
     renderSegmentCTA();
     renderSectorDemo();
-    renderBookmarkNote();
+    renderActionButtons();
     saveStateToUrl();
   }
 
@@ -590,45 +590,24 @@
 
     const ctas = {
       HOT: `
-        <div class="card">
-          <h3>You're exactly who we built this for</h3>
-          <p>Owner-led, right-sized team, professional services. We help businesses like yours turn these opportunities into action with a full AI Audit tailored to your team.</p>
-          <a href="/book.html" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Book a free discovery call</a>
-          <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">30 minutes. No obligation. We'll talk about what you just saw on your map.</p>
-        </div>`,
+        <h3>You're exactly who we built this for</h3>
+        <p>Owner-led, right-sized team, professional services. We help businesses like yours turn these opportunities into action with a full AI Audit tailored to your team.</p>
+        <a href="/book.html" class="btn btn--primary btn--large" style="margin-top: var(--space-sm)">Book a free discovery call</a>
+        <p style="font-size: var(--text-sm);">30 minutes. No obligation. We'll talk about what you just saw on your map.</p>`,
       WARM: `
-        <div class="card">
-          <h3>Want to go deeper?</h3>
-          <p>Your map shows where the opportunities are. Our YouTube channel breaks down exactly how businesses like yours are acting on them. Real examples, no fluff.</p>
-          <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Watch on YouTube</a>
-        </div>`,
+        <h3>Want to go deeper?</h3>
+        <p>Your map shows where the opportunities are. Our YouTube channel breaks down exactly how businesses like yours are acting on them. Real examples, no fluff.</p>
+        <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-sm)">Watch on YouTube</a>`,
       SOLOPRENEUR: `
-        <div class="card">
-          <h3>Flying solo? These tools can help now.</h3>
-          <p>As a small team, you don't need a full audit. You need the right tools. Our YouTube channel covers the best AI tools for solo and micro businesses.</p>
-          <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-md)">Watch on YouTube</a>
-        </div>`,
+        <h3>Flying solo? These tools can help now.</h3>
+        <p>As a small team, you don't need a full audit. You need the right tools. Our YouTube channel covers the best AI tools for solo and micro businesses.</p>
+        <a href="https://youtube.com/@KrisFarebrother" target="_blank" class="btn btn--primary btn--large" style="margin-top: var(--space-sm)">Watch on YouTube</a>`,
       COMMUNITY: `
-        <div class="card">
-          <h3>Useful for someone else in your business?</h3>
-          <p>This link contains your exact results. Send it to whoever's thinking about AI in your organisation and they'll see the same map you're looking at now.</p>
-          <button class="btn btn--primary btn--large" style="margin-top: var(--space-md)" id="btn-share-results">Copy link to share your results</button>
-          <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">They can also do their own assessment by starting fresh.</p>
-        </div>`,
+        <h3>Know someone who should see this?</h3>
+        <p>Use the <strong>Share</strong> button above to send these exact results to the person in your business thinking about AI. They'll see the same map you're looking at now.</p>`,
     };
 
     container.innerHTML = ctas[segment] || ctas.COMMUNITY;
-
-    // Bind share button (uses stateful URL)
-    const shareBtn = document.getElementById('btn-share-results');
-    if (shareBtn) {
-      shareBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          shareBtn.textContent = 'Link copied!';
-          setTimeout(() => { shareBtn.textContent = 'Copy link to share your results'; }, 3000);
-        });
-      });
-    }
   }
 
   function renderSectorDemo() {
@@ -642,19 +621,38 @@
     }
 
     container.innerHTML = `
-      <div class="card">
-        <h3>See what a full AI Audit looks like</h3>
-        <p>Your Mini-Map is a quick scan. A full AI Audit goes much deeper: team interviews, AI-assisted analysis, and an interactive Opportunity Map. Here's an example for a fictional ${selectedIndustry.name.toLowerCase()} firm.</p>
-        <a href="${demo.url}" target="_blank" class="btn btn--outline btn--large" style="margin-top: var(--space-md)">Explore the ${selectedIndustry.name} demo</a>
-        <p style="margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-secondary)">Interactive demo. Fictional company, real methodology.</p>
-      </div>`;
+      <p style="font-size: var(--text-sm); margin-bottom: var(--space-xs) !important;">Want to see a full AI Audit? Explore an interactive demo for a fictional ${selectedIndustry.name.toLowerCase()} firm:</p>
+      <a href="${demo.url}" target="_blank" class="btn btn--outline" style="font-size: var(--text-sm);">Explore the ${selectedIndustry.name} demo</a>`;
     container.style.display = 'block';
   }
 
-  function renderBookmarkNote() {
-    const container = document.getElementById('bookmark-note');
-    if (!container) return;
-    container.innerHTML = `<p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-md);">Bookmark this page to keep your results. The URL saves your answers.</p>`;
+  function renderActionButtons() {
+    const saveBtn = document.getElementById('btn-save-link');
+    const shareBtn = document.getElementById('btn-share-link');
+    const confirm = document.getElementById('action-confirm');
+
+    function showConfirm(msg) {
+      if (!confirm) return;
+      confirm.textContent = msg;
+      confirm.style.display = 'block';
+      setTimeout(() => { confirm.style.display = 'none'; }, 4000);
+    }
+
+    if (saveBtn) {
+      saveBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showConfirm('Link copied! Paste it somewhere safe to come back to these results any time.');
+        });
+      });
+    }
+
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showConfirm('Link copied! Send it to a colleague and they\'ll see your exact results.');
+        });
+      });
+    }
   }
 
   // -----------------------------------------------------------------------

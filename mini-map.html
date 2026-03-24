@@ -161,8 +161,18 @@
             </div>
           </div>
 
-          <!-- Bookmark note (populated by JS when results shown) -->
-          <div id="bookmark-note"></div>
+          <!-- Save / Share action bar -->
+          <div class="minimap__actions" id="results-actions">
+            <button class="minimap__action-btn" id="btn-save-link" title="Save this page to come back later">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              <span>Save my results</span>
+            </button>
+            <button class="minimap__action-btn" id="btn-share-link" title="Copy a link to share these exact results">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              <span>Share with a colleague</span>
+            </button>
+          </div>
+          <p class="minimap__action-confirm" id="action-confirm" style="display:none"></p>
 
           <!-- Process detail panel (shown when dot is clicked) -->
           <div class="minimap__detail" id="process-detail" style="display:none">
@@ -174,25 +184,25 @@
             <p id="detail-explanation"></p>
           </div>
 
-          <!-- Segment-specific CTA -->
-          <div class="minimap__cta-section" id="segment-cta">
-            <!-- Populated by JS based on segment -->
-          </div>
+          <!-- Combined: Segment CTA + Sector demo + Email capture -->
+          <div class="minimap__results-footer" id="results-footer">
+            <!-- Segment-specific CTA (populated by JS) -->
+            <div id="segment-cta"></div>
 
-          <!-- Sector demo CTA (populated by JS if demo exists for industry) -->
-          <div class="minimap__cta-section" id="sector-demo-cta" style="display:none">
-          </div>
+            <!-- Sector demo link (populated by JS if demo exists) -->
+            <div id="sector-demo-cta" style="display:none"></div>
 
-          <!-- Email capture -->
-          <div class="minimap__email-section" id="email-section">
-            <div class="card">
-              <h3>Save your results and get a detailed breakdown</h3>
-              <p>We'll email you a summary of your top opportunities with practical next steps.</p>
+            <!-- Divider -->
+            <hr class="minimap__divider">
+
+            <!-- Email capture -->
+            <div class="minimap__email-inline" id="email-section">
+              <p class="minimap__email-headline">Get these results by email</p>
               <div class="minimap__email-form">
                 <input type="email" id="results-email" placeholder="your@email.com" class="minimap__input">
-                <button class="btn btn--primary" id="btn-save-results">Send my results</button>
+                <button class="btn btn--primary" id="btn-save-results">Send</button>
               </div>
-              <p class="minimap__email-note">By submitting, you agree to receive your results by email. We'll also add you to our mailing list for occasional AI insights. Unsubscribe any time. See our <a href="/privacy.html">privacy policy</a>.</p>
+              <p class="minimap__email-note">We'll send your top opportunities and add you to occasional AI insights. Unsubscribe any time. <a href="/privacy.html">Privacy policy</a>.</p>
               <p class="minimap__email-thanks" id="email-thanks" style="display:none">Sent! Check your inbox.</p>
             </div>
           </div>
