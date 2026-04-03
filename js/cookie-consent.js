@@ -1,7 +1,9 @@
 /* ============================================
    Cookie Consent Banner
-   PECR-compliant: Apollo tracker only loads
-   after user gives explicit consent.
+   PECR-compliant: Apollo tracker and GA4 full
+   tracking only activate after explicit consent.
+   GA4 uses Google Consent Mode v2 — denied by
+   default, granted on accept.
    ============================================ */
 
 (function () {
@@ -40,6 +42,22 @@
     document.head.appendChild(o);
   }
 
+  function grantGA4() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        analytics_storage: 'granted'
+      });
+    }
+  }
+
+  function denyGA4() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        analytics_storage: 'denied'
+      });
+    }
+  }
+
   function hideBanner() {
     var banner = document.getElementById('cookie-consent-banner');
     if (banner) {
@@ -60,8 +78,9 @@
     banner.innerHTML =
       '<div class="cookie-banner__inner">' +
         '<p class="cookie-banner__text">' +
-          'We use cookies to understand which businesses visit our site. ' +
-          'This helps us tailor our services. No personal browsing profiles are built. ' +
+          'We use cookies and analytics to understand which businesses visit our site ' +
+          'and how visitors use it. This helps us improve our services. ' +
+          'No personal browsing profiles are built. ' +
           '<a href="/privacy.html">Privacy policy</a>' +
         '</p>' +
         '<div class="cookie-banner__buttons">' +
@@ -75,11 +94,13 @@
     document.getElementById('cookie-accept').addEventListener('click', function () {
       setConsent('accepted');
       loadApollo();
+      grantGA4();
       hideBanner();
     });
 
     document.getElementById('cookie-reject').addEventListener('click', function () {
       setConsent('rejected');
+      denyGA4();
       hideBanner();
     });
   }
@@ -95,6 +116,7 @@
         } catch (err) {
           // ignore
         }
+        denyGA4();
         showBanner();
       });
     }
@@ -105,6 +127,7 @@
 
   if (consent === 'accepted') {
     loadApollo();
+    grantGA4();
   } else if (consent === null) {
     // No choice made yet — show banner
     if (document.readyState === 'loading') {
@@ -113,7 +136,7 @@
       showBanner();
     }
   }
-  // If 'rejected', do nothing (no Apollo, no banner)
+  // If 'rejected', do nothing (no Apollo, GA4 stays denied)
 
   // Bind footer link
   if (document.readyState === 'loading') {
