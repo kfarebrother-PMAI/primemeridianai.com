@@ -695,12 +695,12 @@
           document.querySelector('.minimap__email-form').style.display = 'none';
           document.querySelector('.minimap__email-note').style.display = 'none';
         } else {
-          btnSaveResults.textContent = 'Something went wrong — try again';
+          btnSaveResults.textContent = 'Something went wrong. Try again';
           btnSaveResults.disabled = false;
         }
       } catch {
         // If API is down, still show a graceful message
-        btnSaveResults.textContent = 'Could not connect — try again later';
+        btnSaveResults.textContent = 'Could not connect. Try again later';
         btnSaveResults.disabled = false;
       }
     });

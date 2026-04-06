@@ -16,19 +16,22 @@
   <link rel="icon" href="/images/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <title>Prime Meridian AI — AI Audits for Owner-Managed Businesses</title>
-  <meta name="description" content="Find out exactly where AI and automation can save your business time and money. Interview-led audits built around your actual business — not a generic framework.">
+  <meta name="description" content="Find out exactly where AI and automation can save your business time and money. Interview-led audits built around your actual business, not a generic framework.">
   <meta property="og:title" content="Prime Meridian AI — AI Audits for Owner-Managed Businesses">
   <meta property="og:description" content="Find out exactly where AI and automation can save your business time and money.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://primemeridianai.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <!-- Cookie Consent + Apollo (consent-gated) -->
   <script src="/js/cookie-consent.js"></script>
 </head>
 <body>
+
+  <!-- Signature: faint gold meridian line -->
+  <div class="meridian-line"></div>
 
   <!-- Navigation -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -50,15 +53,45 @@
 
   <main>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- Hero: Asymmetric with Opportunity Map preview -->
+    <section class="hero hero--home">
+      <div class="hero__glow"></div>
       <div class="container">
-        <span class="hero__eyebrow">AI Strategy for Professional Services</span>
-        <h1 class="hero__title">Stop guessing where AI fits. Map it.</h1>
-        <p class="hero__subtitle">Most AI advice is generic. Ours isn't. We sit down with your team, learn how they actually work, and map exactly where AI and automation will make a real difference.</p>
-        <div class="hero__actions">
-          <a href="/book.html" class="btn btn--primary btn--large">Book a Discovery Call</a>
-          <a href="/ai-audit.html" class="btn btn--secondary btn--large">How the Audit Works</a>
+        <div class="hero--home__grid">
+          <div class="hero__content">
+            <span class="hero__eyebrow">AI Strategy for Professional Services</span>
+            <h1 class="hero__title">Stop guessing<br>where AI fits.<br><em>Map it.</em></h1>
+            <p class="hero__subtitle">We sit down with your team, learn how they actually work, and map exactly where AI and automation will save you time and money. Built from your processes, not a generic framework.</p>
+            <div class="hero__actions">
+              <a href="/book.html" class="btn btn--primary btn--large">Book a Discovery Call</a>
+              <a href="/ai-audit.html" class="btn btn--secondary btn--large">How the Audit Works</a>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="map-preview">
+              <div class="map-preview__bg">
+                <div class="map-preview__grid"></div>
+                <div class="map-preview__trend"></div>
+                <span class="map-preview__axis-y">Impact</span>
+                <span class="map-preview__axis-x">Ease of Implementation</span>
+                <span class="map-preview__quadrant map-preview__quadrant--tl">Strategic</span>
+                <span class="map-preview__quadrant map-preview__quadrant--tr">Quick Wins</span>
+                <span class="map-preview__quadrant map-preview__quadrant--bl">Low Priority</span>
+                <span class="map-preview__quadrant map-preview__quadrant--br">Easy Gains</span>
+                <!-- Opportunity dots -->
+                <div class="map-dot" data-label="Document review" style="width:18px;height:18px;background:rgba(212,168,83,0.8);top:18%;right:22%;animation-delay:0.5s"></div>
+                <div class="map-dot" data-label="Client onboarding" style="width:22px;height:22px;background:rgba(212,168,83,0.9);top:25%;right:32%;animation-delay:0.7s"></div>
+                <div class="map-dot" data-label="Email triage" style="width:14px;height:14px;background:rgba(212,168,83,0.6);top:15%;right:15%;animation-delay:0.9s"></div>
+                <div class="map-dot" data-label="Compliance checks" style="width:20px;height:20px;background:rgba(212,168,83,0.7);top:35%;right:40%;animation-delay:1.1s"></div>
+                <div class="map-dot" data-label="Report generation" style="width:16px;height:16px;background:rgba(212,168,83,0.5);top:28%;right:18%;animation-delay:1.3s"></div>
+                <div class="map-dot" data-label="Data entry" style="width:12px;height:12px;background:rgba(232,200,122,0.5);top:55%;right:20%;animation-delay:1.5s"></div>
+                <div class="map-dot" data-label="Meeting summaries" style="width:15px;height:15px;background:rgba(212,168,83,0.65);top:22%;right:28%;animation-delay:0.8s"></div>
+                <div class="map-dot" data-label="Invoice processing" style="width:17px;height:17px;background:rgba(212,168,83,0.55);top:45%;right:35%;animation-delay:1.0s"></div>
+                <div class="map-dot" data-label="Staff scheduling" style="width:11px;height:11px;background:rgba(200,188,168,0.4);top:65%;right:55%;animation-delay:1.2s"></div>
+                <div class="map-dot" data-label="CRM updates" style="width:13px;height:13px;background:rgba(200,188,168,0.35);top:70%;right:45%;animation-delay:1.4s"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -76,7 +109,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="4 3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
             </div>
             <h3 class="card__title">Generic advice doesn't fit</h3>
-            <p class="card__text">Every AI guide seems written for tech companies. Your accountancy practice, law firm, or recruitment agency has its own processes — and its own opportunities.</p>
+            <p class="card__text">Every AI guide seems written for tech companies. Your accountancy practice, law firm, or recruitment agency has its own processes, and its own opportunities.</p>
           </div>
           <div class="card reveal">
             <div class="card__icon">
@@ -90,7 +123,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
             </div>
             <h3 class="card__title">You want clarity, not confusion</h3>
-            <p class="card__text">You've attended the webinar. You've tried ChatGPT. What you actually need is a clear plan — specific to your business — that you can act on.</p>
+            <p class="card__text">You've attended the webinar. You've tried ChatGPT. What you actually need is a clear plan, specific to your business, that you can act on.</p>
           </div>
         </div>
       </div>
@@ -102,22 +135,22 @@
         <div class="section-header reveal">
           <span class="section-header__eyebrow">The Insider Method</span>
           <h2>How the AI Audit works</h2>
-          <p>Three steps. No jargon. Built around how your business actually operates.</p>
+          <p>Three steps, built around how your business actually operates.</p>
         </div>
         <div class="steps">
           <div class="step reveal">
             <div class="step__number">1</div>
             <div class="step__content">
               <h3>We talk to your people</h3>
-              <p>Short, structured conversations with you and key team members about their actual day-to-day work. What takes too long, what falls through the cracks, what's repetitive. No questionnaires — real conversations.</p>
-              <span class="step__time">3-5 interviews, 30 mins each</span>
+              <p>Short, structured conversations with you and key team members about their actual day-to-day work. What takes too long, what falls through the cracks, where things get stuck. We don't send questionnaires. We listen.</p>
+              <span class="step__time">3-5 interviews, up to an hour each</span>
             </div>
           </div>
           <div class="step reveal">
             <div class="step__number">2</div>
             <div class="step__content">
               <h3>We map every opportunity</h3>
-              <p>Using AI-assisted analysis of those conversations, we identify every place where AI or automation could genuinely help — and every risk to watch for. Each opportunity is scored on two dimensions: impact and effort.</p>
+              <p>Using AI-assisted analysis of those conversations, we identify every place where AI or automation could genuinely help, and every risk to watch for. Each opportunity is scored on two dimensions: impact and effort.</p>
               <span class="step__time">Analysis takes 3-5 working days</span>
             </div>
           </div>
@@ -125,7 +158,7 @@
             <div class="step__number">3</div>
             <div class="step__content">
               <h3>You get a prioritised map</h3>
-              <p>A clear, visual report showing every opportunity plotted on an impact-vs-effort matrix. Start with the high-impact, low-effort wins. Work outward at your own pace. Act on what makes sense — with whoever you choose.</p>
+              <p>A clear, visual report showing every opportunity plotted on an impact-vs-effort matrix. Start with the high-impact, low-effort wins. Work outward at your own pace. Act on what makes sense, with whoever you choose.</p>
               <span class="step__time">Delivered as a written report + walkthrough call</span>
             </div>
           </div>
@@ -133,53 +166,29 @@
       </div>
     </section>
 
-    <!-- Mini-Map CTA -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="cta-banner reveal">
-          <span class="section-header__eyebrow">Free Tool</span>
-          <h2>See where AI fits in your business — in 3 minutes</h2>
-          <p>Pick your industry, rate a few processes, and get an instant visual map of your biggest AI opportunities. No sign-up required.</p>
-          <a href="/mini-map.html" class="btn btn--primary btn--large">Try the AI Mini-Map</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- What makes this different -->
+    <!-- Why This Works: Grid with dividers -->
     <section class="section section--alt">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Why This Works</span>
           <h2>Built for businesses like yours</h2>
         </div>
-        <div class="grid grid--2 reveal-stagger">
-          <div class="card reveal">
-            <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a4 4 0 0 0-4 4c0 2.2 1.8 4 4 4"/><path d="M12 10a4 4 0 0 1 4 4c0 2.2-1.8 4-4 4"/><circle cx="12" cy="14" r="1" fill="currentColor" stroke="none"/><path d="M12 2v8"/><path d="M4.93 4.93l2.83 2.83" opacity="0.4"/><path d="M19.07 4.93l-2.83 2.83" opacity="0.4"/></svg>
-            </div>
-            <h3 class="card__title">Your business, not a template</h3>
-            <p class="card__text">Every audit is built from conversations with your actual team about their actual work. No generic frameworks. No tick-box questionnaires. Your opportunities are unique — the audit should be too.</p>
+        <div class="differentiators">
+          <div class="diff-item reveal">
+            <h3>Shaped by your people</h3>
+            <p>Every audit starts with conversations with your actual team about their actual work. We don't use generic frameworks or tick-box questionnaires. The opportunities we find are ones only your business has.</p>
           </div>
-          <div class="card reveal">
-            <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="16" r="2"/><circle cx="16" cy="8" r="2"/><circle cx="12" cy="12" r="1.5"/><line x1="3" y1="21" x2="21" y2="3" stroke-dasharray="2 3" opacity="0.3"/></svg>
-            </div>
-            <h3 class="card__title">A map, not a sales pitch</h3>
-            <p class="card__text">The audit is the product. You get a complete map of your AI opportunities — ranked by impact and effort — and you decide what to act on. No lock-in. No upsell pressure.</p>
+          <div class="diff-item reveal">
+            <h3>The audit is the product</h3>
+            <p>You get a complete map of your AI opportunities, ranked by impact and effort, and you decide what to act on. We don't lock you into implementation contracts or push add-ons.</p>
           </div>
-          <div class="card reveal">
-            <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="8" x2="16" y2="8" opacity="0.5"/><line x1="8" y1="12" x2="13" y2="12" opacity="0.5"/></svg>
-            </div>
-            <h3 class="card__title">Plain English, not jargon</h3>
-            <p class="card__text">You won't need a technical translator. The report is written for business owners who want to understand their options — not for developers who already know the answer.</p>
+          <div class="diff-item reveal">
+            <h3>Written for owners, not engineers</h3>
+            <p>You won't need a technical translator. The report explains your options in language you'd use in a board meeting, with clear recommendations you can act on this quarter.</p>
           </div>
-          <div class="card reveal">
-            <div class="card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 class="card__title">Designed for 10-150 people</h3>
-            <p class="card__text">Too big for one person to handle alone. Too small for McKinsey to care about. This is the size of business where AI makes the biggest difference — and where the right guidance is hardest to find.</p>
+          <div class="diff-item reveal">
+            <h3>Built for SMEs</h3>
+            <p>Most AI consultancies chase enterprise contracts. We work with owner-managed SMEs, where one person still makes the decisions and one good automation can free up half a day a week.</p>
           </div>
         </div>
       </div>
@@ -190,7 +199,7 @@
       <div class="container">
         <div class="cta-banner reveal">
           <h2>Ready to find out what AI can actually do for your business?</h2>
-          <p>No pitch, no pressure. Just a 30-minute conversation about where you are and what might help.</p>
+          <p>30 minutes. We'll talk about where your business is now and whether an audit makes sense. If it doesn't, we'll say so.</p>
           <a href="/book.html" class="btn btn--primary btn--large">Book a Discovery Call</a>
         </div>
       </div>

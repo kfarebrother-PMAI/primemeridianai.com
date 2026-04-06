@@ -221,6 +221,8 @@
           </thead>
           <tbody>
             <tr><td><strong>Claude</strong></td><td>Anthropic (US)</td><td>Interview transcripts, business analysis, workspace data</td><td>AI-assisted analysis of audit findings, business operations</td></tr>
+            <tr><td><strong>AuditFlo</strong></td><td>Morningside AI (US)</td><td>Interview transcripts, research data, audit analysis</td><td>Audit workflow platform. Uses Anthropic and OpenAI as sub-processors for AI analysis.</td></tr>
+            <tr><td><strong>OpenAI</strong></td><td>OpenAI (US)</td><td>Interview transcripts (via AuditFlo)</td><td>AI-assisted analysis within AuditFlo's audit workflow</td></tr>
             <tr><td><strong>Fireflies.ai</strong></td><td>Fireflies (US)</td><td>Meeting audio, transcripts, attendee details</td><td>Meeting recording and transcription</td></tr>
             <tr><td><strong>Gemini</strong></td><td>Google (US)</td><td>Business metrics summaries, meeting highlights</td><td>Daily business intelligence synthesis</td></tr>
             <tr><td><strong>Apollo.io</strong></td><td>Apollo (US)</td><td>Business contact data, website visitor data</td><td>Prospecting and website analytics</td></tr>
@@ -229,7 +231,7 @@
 
         <p><strong>Important commitments:</strong></p>
         <ul>
-          <li>None of our AI providers use your data to train AI models. Anthropic: opted out of training, 7-day API retention. Google Gemini: paid API tier, data not used for training or product improvement (logged only for abuse monitoring). Fireflies: contractually prohibits all vendors (including OpenAI and ASR providers) from using data for training, with zero-retention policies.</li>
+          <li>None of our AI providers use your data to train AI models. Anthropic: opted out of training, 7-day API retention. AuditFlo: explicitly commits to no model training and no data-sharing programmes; its AI sub-processors (Anthropic, OpenAI) auto-delete data within 30-55 days. OpenAI (via AuditFlo): API-tier processing only, data not used for training. Google Gemini: paid API tier, data not used for training or product improvement (logged only for abuse monitoring). Fireflies: contractually prohibits all vendors (including OpenAI and ASR providers) from using data for training, with zero-retention policies.</li>
           <li>No automated decisions are made about you. All AI outputs are reviewed by a human before being acted upon or shared.</li>
           <li>AI tools are used to assist analysis, not to replace human judgement. The AI Audit deliverable is a human-reviewed product.</li>
         </ul>
@@ -266,7 +268,7 @@
           <li>Attio CRM (meeting notes summary only, United Kingdom / EU data centres)</li>
         </ul>
 
-        <p><strong>Retention:</strong> Recordings and transcripts are retained for 12 months after the audit deliverable is provided, then deleted. You can request earlier deletion at any time.</p>
+        <p><strong>Retention:</strong> Recordings and transcripts are deleted within 90 days of the audit deliverable being provided. You can request earlier deletion at any time.</p>
 
         <hr>
 
@@ -283,7 +285,9 @@
             <tr><td><strong>Attio</strong></td><td>United Kingdom (EU data centres)</td><td>Contact details, deal information, meeting notes</td><td>attio.com/legal/privacy</td></tr>
             <tr><td><strong>Brevo</strong></td><td>France (EU data centres)</td><td>Email addresses, contact attributes</td><td>brevo.com/legal/privacypolicy</td></tr>
             <tr><td><strong>Fireflies.ai</strong></td><td>United States</td><td>Meeting recordings, transcripts, attendee details</td><td>fireflies.ai/privacy-policy</td></tr>
+            <tr><td><strong>AuditFlo</strong></td><td>United States</td><td>Interview transcripts, research data, audit analysis</td><td>auditflo.ai/privacy</td></tr>
             <tr><td><strong>Anthropic (Claude)</strong></td><td>United States</td><td>Interview transcripts, business analysis data</td><td>anthropic.com/privacy</td></tr>
+            <tr><td><strong>OpenAI</strong></td><td>United States</td><td>Interview transcripts (via AuditFlo)</td><td>openai.com/privacy</td></tr>
             <tr><td><strong>Google (Gemini)</strong></td><td>United States</td><td>Business metrics summaries</td><td>policies.google.com/privacy</td></tr>
             <tr><td><strong>Calendly</strong></td><td>United States</td><td>Name, email (for bookings)</td><td>calendly.com/privacy</td></tr>
             <tr><td><strong>Google Analytics</strong></td><td>United States</td><td>Page views, traffic sources, site navigation (consent-gated)</td><td>policies.google.com/privacy</td></tr>
@@ -325,10 +329,14 @@
           </thead>
           <tbody>
             <tr><td>Anthropic (Claude)</td><td>EU SCCs + UK Addendum</td><td>United States (AWS)</td></tr>
+            <tr><td>AuditFlo (Morningside AI)</td><td>EU SCCs + UK Addendum</td><td>United States</td></tr>
+            <tr><td>OpenAI (via AuditFlo)</td><td>EU SCCs + UK Addendum</td><td>United States</td></tr>
           </tbody>
         </table>
 
         <p>Anthropic is not DPF-certified. Transfers are protected by Standard Contractual Clauses with the UK Addendum (the ICO-approved mechanism). Anthropic retains API data for 7 days, does not use our data for model training (we have opted out), and holds SOC 2 Type II and ISO 42001 certifications.</p>
+
+        <p>AuditFlo (operated by Morningside AI) processes data in the United States. AuditFlo holds SOC 2 Type II and ISO 27001 certifications. When AI processing is required, AuditFlo uses Anthropic and OpenAI as sub-processors under strict data usage policies: no model training, no data sharing, automatic deletion within 30-55 days. A Data Processing Agreement is available on request.</p>
 
         <p><strong>Providers based in the UK or EU (no international transfer required):</strong></p>
 
@@ -360,8 +368,9 @@
             <tr><td>Discovery call bookings</td><td>Duration of business relationship</td></tr>
             <tr><td>Cold outreach contact data</td><td>Until you opt out (then suppressed, not deleted, to prevent re-contact)</td></tr>
             <tr><td>CRM contact records</td><td>Duration of business relationship + 6 years (legal/accounting requirements)</td></tr>
-            <tr><td>Meeting recordings and transcripts</td><td>12 months after audit delivery, then deleted</td></tr>
-            <tr><td>AI processing data (Anthropic)</td><td>7 days (Anthropic's API data retention policy)</td></tr>
+            <tr><td>Meeting recordings and transcripts</td><td>90 days after audit delivery, then deleted</td></tr>
+            <tr><td>AI processing data (Anthropic, direct)</td><td>7 days (Anthropic's API data retention policy)</td></tr>
+            <tr><td>AI processing data (Anthropic + OpenAI, via AuditFlo)</td><td>30-55 days (auto-deleted, not used for training)</td></tr>
             <tr><td>Business correspondence</td><td>Up to 6 years (legal/accounting requirements)</td></tr>
             <tr><td>Financial records</td><td>6 years (HMRC requirement)</td></tr>
           </tbody>
