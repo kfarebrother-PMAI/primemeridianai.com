@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AI Audit Report Demo — Law — Prime Meridian AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       v5 — strict 2-font rule (DM Sans + Fraunces, NO italic)
+       Removes R12 metadata strip
+       Tighter hero/section spacing
+       Restructured big-stat, pullquote, north-star
+       Adds R13: footer disclaimer label as eyebrow + rule motif
+       ============================================================ */
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    :root {
+      --paper:           #FAF8F2;
+      --paper-edge:      #F2EEE2;
+      --ink:             #1A1815;
+      --ink-rgb:         26, 24, 21;
+      --navy:            #0B1120;
+      --navy-ink:        #E8DCC8;
+      --navy-ink-rgb:    232, 220, 200;
+      --gold:            #D4A853;
+      --gold-deep:       #B88D38;
+
+      /* TWO families only. No italic anywhere. */
+      --serif:  "Fraunces", Georgia, "Times New Roman", serif;
+      --sans:   "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      --content-max: 880px;
+      --gutter: 32px;
+      --radius: 4px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 0 0, rgba(var(--ink-rgb), 0.06) 0.7px, transparent 0.7px) 0 0 / 28px 28px,
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-feature-settings: "kern", "liga", "calt", "tnum", "lnum", "ss01";
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(var(--ink-rgb), 0.3);
+      transition: border-color .15s ease;
+    }
+    a:hover { border-bottom-color: var(--ink); }
+
+    /* -------- Header -------- */
+    .site-header {
+      background: var(--navy);
+      color: var(--navy-ink);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(var(--navy-ink-rgb), 0.12);
+    }
+    .site-header__brand-row { padding: 16px var(--gutter) 12px; }
+    .site-header__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand__mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+      border: 1.5px solid var(--gold);
+    }
+    .brand__mark::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 5px;
+      bottom: 5px;
+      width: 1px;
+      background: var(--gold);
+      transform: translateX(-50%);
+    }
+    .brand__text {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.01em;
+      color: var(--navy-ink);
+    }
+    .report-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(var(--navy-ink-rgb), 0.6);
+    }
+
+    .section-nav {
+      padding: 0 var(--gutter);
+      border-top: 1px solid rgba(var(--navy-ink-rgb), 0.1);
+    }
+    .section-nav__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+    }
+    .section-nav a {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(var(--navy-ink-rgb), 0.55);
+      padding: 12px 16px;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      white-space: nowrap;
+      transition: color .15s ease, border-color .15s ease;
+    }
+    .section-nav a:hover { color: var(--navy-ink); }
+    .section-nav a.active {
+      color: var(--navy-ink);
+      font-weight: 700;
+      border-bottom-color: var(--navy-ink);
+    }
+
+    /* -------- Main -------- */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section {
+      padding: 44px var(--gutter);
+    }
+    .section--hero {
+      padding-top: 56px;
+      padding-bottom: 8px;
+    }
+    .section--tinted {
+      background: var(--paper-edge);
+    }
+    .section__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    /* -------- Hero (no italic on subtitle) -------- */
+    .hero__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(48px, 7vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+    .hero__subtitle {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 19px;
+      color: rgba(var(--ink-rgb), 0.55);
+      margin: 0 0 22px;
+    }
+    .hero__tagline {
+      font-family: var(--sans);
+      font-size: 19px;
+      line-height: 1.55;
+      color: rgba(var(--ink-rgb), 0.78);
+      max-width: 60ch;
+      margin: 0;
+    }
+
+    /* -------- Section header motif -------- */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .section__label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      flex-shrink: 0;
+    }
+    .section__rule {
+      height: 1px;
+      flex: 1;
+      background: var(--ink);
+      opacity: 0.15;
+    }
+    .section__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 38px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .section__lede {
+      font-family: var(--sans);
+      font-size: 16px;
+      color: rgba(var(--ink-rgb), 0.62);
+      margin: 0 0 28px;
+      max-width: 62ch;
+    }
+
+    /* -------- Insights (gold left border, gold numerals) -------- */
+    .insights {
+      background: var(--paper);
+      border-left: 3px solid var(--gold);
+      border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+      border-right: 1px solid rgba(var(--ink-rgb), 0.1);
+      border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
+      padding: 22px 28px;
+      border-radius: var(--radius);
+    }
+    .insights ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: insight;
+    }
+    .insights li {
+      counter-increment: insight;
+      position: relative;
+      padding: 13px 0 13px 48px;
+      border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .insights li:last-child { border-bottom: 0; padding-bottom: 4px; }
+    .insights li:first-child { padding-top: 4px; }
+    .insights li::before {
+      content: counter(insight, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 13px;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--gold-deep);
+      letter-spacing: 0.05em;
+    }
+    .insights li:first-child::before { top: 5px; }
+
+    /* -------- Navy North Star (NO italic, sourced) -------- */
+    .north-star {
+      background: var(--navy);
+      color: var(--navy-ink);
+      padding: 56px var(--gutter);
+      position: relative;
+    }
+    .north-star::before, .north-star::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      transform: translateX(-50%);
+    }
+    .north-star::before { top: 24px; }
+    .north-star::after { bottom: 24px; }
+    .north-star__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .north-star__label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 18px;
+    }
+    .north-star__quote {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(22px, 2.5vw, 28px);
+      line-height: 1.4;
+      color: var(--navy-ink);
+      margin: 0 auto 20px;
+      max-width: 56ch;
+      letter-spacing: -0.005em;
+    }
+    .north-star__source {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: rgba(var(--navy-ink-rgb), 0.65);
+      margin: 0;
+    }
+
+    /* -------- Pullquote (centered, NO italic, restrained source) -------- */
+    .pullquote {
+      margin: 0 auto 36px;
+      padding: 0;
+      text-align: center;
+      max-width: 60ch;
+    }
+    .pullquote__text {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.35;
+      color: var(--ink);
+      margin: 0 0 16px;
+      letter-spacing: -0.005em;
+    }
+    .pullquote__source {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: rgba(var(--ink-rgb), 0.6);
+      margin: 0;
+      font-weight: 400;
+    }
+
+    /* -------- Teams grid -------- */
+    .teams {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 16px;
+    }
+    .team {
+      background: var(--paper);
+      border: 1px solid rgba(var(--ink-rgb), 0.15);
+      padding: 22px 24px;
+      border-radius: var(--radius);
+    }
+    .team__name {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+    .team__pains {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(var(--ink-rgb), 0.72);
+    }
+    .team__pains li { margin-bottom: 5px; }
+    .team__pains li::marker { color: rgba(var(--ink-rgb), 0.4); }
+
+    /* -------- Big stat (RESTRUCTURED — number + unit tight on top, label directly below) -------- */
+    .big-stat {
+      margin: 0 0 36px;
+      padding: 0 0 28px;
+      border-bottom: 1px solid rgba(var(--ink-rgb), 0.15);
+    }
+    .big-stat__top {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .big-stat__number {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(64px, 8vw, 96px);
+      line-height: 0.85;
+      color: var(--ink);
+      letter-spacing: -0.04em;
+    }
+    .big-stat__unit {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 22px;
+      color: rgba(var(--ink-rgb), 0.55);
+    }
+    .big-stat__label {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: rgba(var(--ink-rgb), 0.65);
+      max-width: 50ch;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* -------- Matrix -------- */
+    .matrix-wrap {
+      background: var(--paper);
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(var(--ink-rgb), 0.15);
+    }
+    .matrix-legend {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(var(--ink-rgb), 0.1);
+      font-size: 12px;
+      color: rgba(var(--ink-rgb), 0.6);
+    }
+    .matrix-legend__item { display: flex; align-items: center; gap: 8px; }
+    .matrix-legend__dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* -------- Top opportunities cards -------- */
+    .opportunities {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .opp {
+      display: flex;
+      gap: 28px;
+      padding: 26px 28px;
+      background: var(--paper);
+      border: 1px solid rgba(var(--ink-rgb), 0.15);
+      border-radius: var(--radius);
+      align-items: flex-start;
+    }
+    .opp__rank {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(56px, 7vw, 84px);
+      color: var(--gold-deep);
+      line-height: 0.85;
+      min-width: 80px;
+      letter-spacing: -0.03em;
+    }
+    .opp__body { flex: 1; }
+    .opp__title {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      margin: 0 0 8px;
+      line-height: 1.25;
+    }
+    .opp__meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: rgba(var(--ink-rgb), 0.5);
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+    .opp__meta strong { color: var(--ink); font-weight: 600; }
+    .opp__note {
+      font-size: 14px;
+      color: rgba(var(--ink-rgb), 0.78);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* -------- Footer -------- */
+    .site-footer {
+      background: var(--navy);
+      color: var(--navy-ink);
+      padding: 36px var(--gutter);
+      margin-top: auto;
+    }
+    .site-footer__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .disclaimer {
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(var(--navy-ink-rgb), 0.78);
+    }
+    /* R13: disclaimer label uses eyebrow + hairline rule motif (matches body section heads) */
+    .disclaimer__head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .disclaimer__head-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .disclaimer__head-rule {
+      height: 1px;
+      flex: 1;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+    .disclaimer p { margin: 0 0 6px; }
+
+    /* All links inside the navy footer use cream-on-navy instead of the global dark-ink default */
+    .site-footer a {
+      color: rgba(var(--navy-ink-rgb), 0.85);
+      border-bottom: 1px solid rgba(var(--navy-ink-rgb), 0.5);
+    }
+    .site-footer a:hover {
+      color: var(--navy-ink);
+      border-bottom-color: var(--gold);
+    }
+
+    .footer-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .footer-cta__lede {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 15px;
+      color: var(--navy-ink);
+      margin: 0;
+      line-height: 1.4;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background .15s ease;
+      letter-spacing: 0.01em;
+    }
+    .btn-gold:hover { background: #E0B868; }
+
+    .site-footer__bottom {
+      max-width: var(--content-max);
+      margin: 24px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(var(--navy-ink-rgb), 0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 11px;
+      color: rgba(var(--navy-ink-rgb), 0.45);
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 720px) {
+      .site-footer__inner { grid-template-columns: 1fr; }
+      .site-footer__bottom { flex-direction: column; }
+      .opp { flex-direction: column; gap: 8px; padding: 22px; }
+      .opp__rank { font-size: 56px; min-width: 0; }
+      .section { padding: 36px var(--gutter); }
+      .section--hero { padding-top: 44px; padding-bottom: 32px; }
+      .section__title { font-size: 30px; }
+      .big-stat__top { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .north-star { padding: 44px var(--gutter); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__brand-row">
+      <div class="site-header__inner">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <div class="brand__text">Prime Meridian AI</div>
+        </div>
+        <div class="report-label">AI Audit Report Demo (Law)</div>
+      </div>
+    </div>
+    <nav class="section-nav" aria-label="Report sections">
+      <div class="section-nav__inner">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#teams">Teams</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#simulator">Simulator</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="section section--hero" id="overview">
+      <div class="section__inner">
+        <h1 class="hero__title">Whitfield Carr Solicitors</h1>
+        <p class="hero__subtitle">UK Law · Commercial Property, Corporate/Commercial, Employment, Private Client</p>
+        <p class="hero__tagline">
+          Recovering fee earner capacity and building compliance resilience through targeted AI automation,
+          without compromising legal professional privilege or professional standards.
+        </p>
+      </div>
+    </section>
+
+    <!-- Executive summary -->
+    <section class="section">
+      <div class="section__inner">
+        <div class="section-head">
+          <span class="section__label">Executive summary</span>
+          <div class="section__rule"></div>
+        </div>
+        <h2 class="section__title">What we found</h2>
+        <p class="section__lede">
+          Insights from our interviews with partners, the practice manager, and frontline fee earners across
+          all four practice areas.
+        </p>
+
+        <div class="insights">
+          <ol>
+            <li>
+              Non-billable admin is the single largest capacity drain. Fee earners lose an estimated 12+ hours
+              per week to document searching, formatting, and client chasing, consistent with Clio's finding
+              that UK lawyers lose 2.3 hours per day to non-billable work.
+            </li>
+            <li>
+              The firm has no document management system or structured precedent bank. Documents live in
+              inconsistent SharePoint folders with no naming convention, leading to hours spent searching and
+              multiple conflicting versions of standard templates.
+            </li>
+            <li>
+              Lock-up stands at approximately 140 days (nearly five months of fee income tied up), driven by
+              delayed billing on property completions and slow collection. Write-offs consume 10-15% of
+              recorded time before it ever reaches an invoice.
+            </li>
+            <li>
+              AML/CDD onboarding takes approximately 2 hours per new matter and periodic re-checks are
+              materially behind schedule, against a backdrop where the SRA found only 13% of firms fully
+              compliant in 2024-25 inspections.
+            </li>
+            <li>
+              Staff are using ChatGPT with client data without any firm governance, approved tools list, or
+              data handling policy, while PII insurers have begun asking about AI governance on proposal forms
+              and the SRA published new AI guidance in February 2026.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- North Star navy callout -->
+    <aside class="north-star" aria-label="North star statement">
+      <div class="north-star__inner">
+        <p class="north-star__label">North Star</p>
+        <p class="north-star__quote">
+          "Free fee earners from low-value repetitive admin so they can focus on billable work, client
+          relationships, and career development, while giving the firm the governance infrastructure to adopt
+          AI safely and satisfy both the SRA and PII insurers."
+        </p>
+        <p class="north-star__source">— Whitfield Carr Solicitors, stated direction</p>
+      </div>
+    </aside>
+
+    <!-- Teams (tinted) -->
+    <section class="section section--tinted" id="teams">
+      <div class="section__inner">
+        <div class="section-head">
+          <span class="section__label">Teams</span>
+          <div class="section__rule"></div>
+        </div>
+        <h2 class="section__title">Where the pain lives</h2>
+        <p class="section__lede">Five practice areas, each with its own bottlenecks.</p>
+
+        <blockquote class="pullquote">
+          <p class="pullquote__text">"Document drafting from precedents takes an hour per document: twenty minutes finding, forty-five minutes adapting, fifteen minutes of actual legal thinking."</p>
+          <p class="pullquote__source">— Heard across multiple practice-area interviews</p>
+        </blockquote>
+
+        <div class="teams">
+          <div class="team">
+            <h3 class="team__name">Commercial Property &amp; Conveyancing</h3>
+            <ul class="team__pains">
+              <li>Fee earners spending approximately one-third of time on non-billable admin: searching for precedents, reformatting lease clauses, chasing clients for documents</li>
+              <li>Document drafting from precedents takes ~1 hour per document: 20 minutes finding, 45 minutes adapting, 15 minutes actual legal thinking</li>
+              <li>Search result summaries for reports on title are manually written every time: same categories, same structure, same phrasing, repeated for every transaction</li>
+              <li>Lock-up at ~140 days driven by billing on completion and slow collection post-invoice</li>
+            </ul>
+          </div>
+
+          <div class="team">
+            <h3 class="team__name">Corporate &amp; Commercial</h3>
+            <ul class="team__pains">
+              <li>Document drafting inefficiency shared with property team: precedent searching in chaotic SharePoint folders</li>
+              <li>Institutional knowledge lost when staff leave: associate departure resulted in inability to find half the corporate documents she had been using</li>
+              <li>No CRM or pipeline tracking: client relationships and referral networks exist only in partners' heads and Outlook contacts</li>
+            </ul>
+          </div>
+
+          <div class="team">
+            <h3 class="team__name">Private Client (Wills, Probate, Tax Planning)</h3>
+            <ul class="team__pains">
+              <li>No structured precedent bank despite 70% of wills following approximately six standard structures: solicitors rebuild from scratch or hunt through personal folders</li>
+              <li>Two hours spent searching for an LPA template saved in a subfolder with a filename that didn't mention LPA anywhere</li>
+              <li>AML/CDD onboarding burden shared with operations: private client work requires full CDD on every new matter</li>
+            </ul>
+          </div>
+
+          <div class="team">
+            <h3 class="team__name">Employment &amp; HR Advisory</h3>
+            <ul class="team__pains">
+              <li>Client communication overhead: routine status updates consume fee earner time that could be billable</li>
+              <li>Time recording inconsistency shared firm-wide: entries backfilled from memory, unreliable utilisation data</li>
+            </ul>
+          </div>
+
+          <div class="team">
+            <h3 class="team__name">Practice Management &amp; Administration</h3>
+            <ul class="team__pains">
+              <li>Weekly WIP reporting requires 3-4 hour manual LEAP-to-Excel process every Monday: no self-serve dashboard for partners</li>
+              <li>Time recording data unreliable: entries backfilled, one associate submitted 11 hours for a single Tuesday</li>
+              <li>Write-offs of 10-15% of recorded time: slow billing erodes recovery rate, estimated £310k+ at risk annually</li>
+              <li>AML/CDD onboarding takes approximately 2 hours per new matter with periodic re-checks materially behind schedule: only 13% of firms fully compliant per SRA</li>
+              <li>No document management system: inconsistent SharePoint folders, no naming convention, multiple conflicting versions of standard documents</li>
+              <li>COLP/COFA compliance burden falls on one partner alongside a full caseload: no time to develop AI governance policy despite SRA and insurer expectations</li>
+              <li>PII insurers now asking about AI governance on proposal forms: first flagged by broker this renewal cycle</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Opportunity matrix -->
+    <section class="section" id="opportunities">
+      <div class="section__inner">
+        <div class="section-head">
+          <span class="section__label">Opportunity map</span>
+          <div class="section__rule"></div>
+        </div>
+        <h2 class="section__title">Impact versus effort</h2>
+        <p class="section__lede">
+          Eight scored opportunities plotted by implementation effort and recovered capacity.
+        </p>
+
+        <!-- Big stat (restructured: number + unit on top, label directly below) -->
+        <div class="big-stat">
+          <div class="big-stat__top">
+            <span class="big-stat__number">42+</span>
+            <span class="big-stat__unit">hrs/week</span>
+          </div>
+          <p class="big-stat__label">recoverable across all five practice areas in the first 90 days</p>
+        </div>
+
+        <div class="matrix-wrap">
+          <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Opportunity impact vs effort matrix" style="width:100%;height:auto;display:block;">
+            <defs>
+              <pattern id="dotgrid" x="80" y="20" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.6" fill="rgba(26,24,21,0.18)"/>
+              </pattern>
+            </defs>
+
+            <rect x="80" y="20" width="680" height="380" fill="#FAF8F2" />
+            <rect x="80" y="20" width="680" height="380" fill="url(#dotgrid)" />
+
+            <line x1="420" y1="20" x2="420" y2="400" stroke="rgba(26,24,21,0.18)" stroke-width="1" stroke-dasharray="2,5"/>
+            <line x1="80" y1="210" x2="760" y2="210" stroke="rgba(26,24,21,0.18)" stroke-width="1" stroke-dasharray="2,5"/>
+
+            <!-- Corner marks -->
+            <path d="M 90 30 L 90 38 M 90 30 L 98 30" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+            <path d="M 410 30 L 410 38 M 410 30 L 402 30" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+            <path d="M 430 30 L 430 38 M 430 30 L 438 30" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+            <path d="M 750 30 L 750 38 M 750 30 L 742 30" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+            <path d="M 90 390 L 90 382 M 90 390 L 98 390" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+            <path d="M 750 390 L 750 382 M 750 390 L 742 390" stroke="rgba(26,24,21,0.4)" stroke-width="1.5" fill="none"/>
+
+            <text x="98" y="50" text-anchor="start" fill="rgba(26,24,21,0.55)" font-family="DM Sans" font-size="10" font-weight="700" letter-spacing="2">QUICK WINS</text>
+            <text x="742" y="50" text-anchor="end" fill="rgba(26,24,21,0.55)" font-family="DM Sans" font-size="10" font-weight="700" letter-spacing="2">STRATEGIC</text>
+            <text x="98" y="384" text-anchor="start" fill="rgba(26,24,21,0.35)" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="2">LOW HANGING</text>
+            <text x="742" y="384" text-anchor="end" fill="rgba(26,24,21,0.35)" font-family="DM Sans" font-size="10" font-weight="600" letter-spacing="2">DEFER</text>
+
+            <line x1="80" y1="400" x2="760" y2="400" stroke="#1A1815" stroke-width="2.5"/>
+            <line x1="80" y1="20" x2="80" y2="400" stroke="#1A1815" stroke-width="2.5"/>
+
+            <text x="420" y="438" text-anchor="middle" fill="#1A1815" font-family="DM Sans" font-size="13" font-weight="600">Effort to implement →</text>
+            <text x="40" y="210" text-anchor="middle" fill="#1A1815" font-family="DM Sans" font-size="13" font-weight="600" transform="rotate(-90,40,210)">Impact (hours/week) →</text>
+
+            <g font-family="DM Sans" font-size="11" fill="#1A1815">
+              <circle cx="280" cy="85" r="13" fill="#D4A853" stroke="#B88D38" stroke-width="2"/>
+              <text x="300" y="89">Precedent bank</text>
+              <circle cx="190" cy="110" r="12" fill="#D4A853" stroke="#B88D38" stroke-width="2"/>
+              <text x="210" y="114">Practice mgmt dashboard</text>
+              <circle cx="160" cy="80" r="11" fill="#D4A853" stroke="#B88D38" stroke-width="2"/>
+              <text x="108" y="68">AI governance framework</text>
+              <circle cx="300" cy="130" r="11" fill="#D4A853" stroke="#B88D38" stroke-width="2"/>
+              <text x="318" y="134">AML/CDD onboarding</text>
+              <circle cx="170" cy="185" r="11" fill="#D4A853" stroke="#B88D38" stroke-width="2"/>
+              <text x="188" y="189">Search summary generator</text>
+              <circle cx="480" cy="70" r="13" fill="#6E685A" stroke="#4A463D" stroke-width="2"/>
+              <text x="500" y="74">Intelligent doc drafting</text>
+              <circle cx="520" cy="140" r="12" fill="#6E685A" stroke="#4A463D" stroke-width="2"/>
+              <text x="540" y="144">Client comms engine</text>
+              <circle cx="640" cy="290" r="9" fill="#B8AFA0" stroke="#8A8270" stroke-width="2"/>
+              <text x="656" y="294">Fee leakage detection</text>
+            </g>
+          </svg>
+
+          <div class="matrix-legend">
+            <div class="matrix-legend__item"><span class="matrix-legend__dot" style="background:#D4A853;border:2px solid #B88D38;"></span>Quick wins</div>
+            <div class="matrix-legend__item"><span class="matrix-legend__dot" style="background:#6E685A;border:2px solid #4A463D;"></span>Strategic projects</div>
+            <div class="matrix-legend__item"><span class="matrix-legend__dot" style="background:#B8AFA0;border:2px solid #8A8270;"></span>Deferred</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top opportunities (tinted) -->
+    <section class="section section--tinted">
+      <div class="section__inner">
+        <div class="section-head">
+          <span class="section__label">Recommendation</span>
+          <div class="section__rule"></div>
+        </div>
+        <h2 class="section__title">Where to start</h2>
+        <p class="section__lede">
+          Three priorities that together recover an estimated 18 hours per week of fee earner and practice
+          manager time in the first 90 days.
+        </p>
+
+        <div class="opportunities">
+          <div class="opp">
+            <div class="opp__rank">01</div>
+            <div class="opp__body">
+              <h3 class="opp__title">Precedent Bank &amp; Document Assembly Engine</h3>
+              <p class="opp__meta">Impact <strong>9 hrs/week</strong> · Effort <strong>Medium</strong> · Payback <strong>8 weeks</strong></p>
+              <p class="opp__note">
+                Structured, searchable precedent library across all practice areas with metadata tagging.
+                AI-assisted document assembly that matches the right precedent to the matter profile and
+                pre-populates standard clauses.
+              </p>
+            </div>
+          </div>
+
+          <div class="opp">
+            <div class="opp__rank">02</div>
+            <div class="opp__body">
+              <h3 class="opp__title">Automated Practice Management Dashboard &amp; WIP Reporting</h3>
+              <p class="opp__meta">Impact <strong>4 hrs/week</strong> · Effort <strong>Low</strong> · Payback <strong>4 weeks</strong></p>
+              <p class="opp__note">
+                Automated extraction from LEAP into a live dashboard showing WIP by partner, utilisation,
+                lock-up days, recovery rate, and billing targets.
+              </p>
+            </div>
+          </div>
+
+          <div class="opp">
+            <div class="opp__rank">03</div>
+            <div class="opp__body">
+              <h3 class="opp__title">AML/CDD Onboarding Automation with Digital ID Verification</h3>
+              <p class="opp__meta">Impact <strong>5 hrs/week</strong> · Effort <strong>Medium</strong> · Payback <strong>8 weeks</strong></p>
+              <p class="opp__note">
+                Automated client onboarding workflow with digital ID capture via Thirdfort or Verify 365,
+                PEP/sanctions screening, and auto-populated risk assessments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="disclaimer">
+        <!-- R13: eyebrow + hairline rule motif (matches body section heads) -->
+        <div class="disclaimer__head">
+          <span class="disclaimer__head-label">Sample report</span>
+          <div class="disclaimer__head-rule"></div>
+        </div>
+        <p>
+          Whitfield Carr Solicitors is a fictional firm. We built this to show what a real AI Audit deliverable
+          looks like.
+        </p>
+        <p>
+          Real audits come from interviews with your actual team, your real workflows, and your real
+          constraints. We trace every finding back to a specific conversation, tool, or data point.
+        </p>
+      </div>
+      <div class="footer-cta">
+        <p class="footer-cta__lede">Want this for your firm?</p>
+        <a href="https://primemeridianai.com/book.html" class="btn-gold">Book a discovery call</a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <div>© 2026 Prime Meridian AI · <a href="https://primemeridianai.com">primemeridianai.com</a></div>
+      <div>Report prepared 2026-03-26</div>
+    </div>
+  </footer>
+
+</body>
+</html>
