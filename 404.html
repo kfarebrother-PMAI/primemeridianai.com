@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Page not found · Prime Meridian AI</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+    <script type="text/javascript">
+      // SPA fallback for the interactive multi-page demos at /demos/{slug}-multipage/.
+      // Matches that path pattern only; everything else falls through to the static
+      // "Page not found" content below. This file intentionally lives at the site root
+      // because GitHub Pages serves it for any unmatched URL.
+      (function () {
+        var l = window.location
+        var match = l.pathname.match(/^\/demos\/([^/]+-multipage)(?:\/|$)/)
+        if (!match) return
+
+        var basePath = '/demos/' + match[1] + '/'
+        // pathSegmentsToKeep = 2 ("demos" + "{slug}-multipage")
+        var trailing = l.pathname
+          .slice(basePath.length)
+          .replace(/&/g, '~and~')
+
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          basePath + '?/' + trailing +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        )
+      })()
+    </script>
+    <style>
+      :root {
+        --paper: #FAF8F2;
+        --paper-edge: #F2EEE2;
+        --ink: #1A1815;
+        --gold: #D4A853;
+        --gold-deep: #B88D38;
+        --serif: "Fraunces", Georgia, "Times New Roman", serif;
+        --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; height: 100%; }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+        text-align: center;
+      }
+      main {
+        max-width: 560px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin: 0 0 18px;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: clamp(40px, 7vw, 60px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin: 0 0 18px;
+      }
+      p {
+        font-size: 17px;
+        line-height: 1.55;
+        color: rgba(26, 24, 21, 0.65);
+        margin: 0 0 28px;
+      }
+      a.btn {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 22px;
+        background: var(--gold);
+        color: #0B1120;
+        border-radius: 4px;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        transition: background .15s ease;
+      }
+      a.btn:hover { background: #E0B868; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Page not found</p>
+      <h1>We couldn’t find that page.</h1>
+      <p>The link you followed may be out of date, or the page may have moved. Try the homepage to find your way back.</p>
+      <a class="btn" href="/">Back to primemeridianai.com</a>
+    </main>
+  </body>
+</html>
