@@ -121,10 +121,19 @@
   }
 
   function grantGA4() {
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', {
-        analytics_storage: 'granted'
-      });
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', {
+      analytics_storage: 'granted'
+    });
+    // Re-emit page_view so the cookied session inherits the current URL's
+    // attribution (UTMs etc.). The auto page_view fired by gtag('config') in
+    // the inline block runs pre-consent (cookieless, ephemeral identity); the
+    // persistent cookied identity created by this grant would otherwise start
+    // life with no source data → First user source = (direct). Only re-fire
+    // when there's a query string worth attributing, so plain repeat visits
+    // don't double-count page_view events.
+    if (window.location.search) {
+      gtag('event', 'page_view');
     }
   }
 
