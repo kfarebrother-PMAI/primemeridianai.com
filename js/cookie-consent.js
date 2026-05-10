@@ -4,25 +4,57 @@
    tracking only activate after explicit consent.
    GA4 uses Google Consent Mode v2 — denied by
    default, granted on accept.
+
+   Consent record is versioned + timestamped.
+   - POLICY_VERSION bumps invalidate prior consent
+     (re-prompts everyone). Bump on any material
+     change: new vendor, new purpose, scope
+     expansion, or privacy-notice rewrite.
+   - MAX_AGE_MS forces periodic refresh (12 months).
+   - Legacy unversioned string values
+     ('accepted'/'rejected') are treated as invalid
+     so the v1 → v2 migration re-prompts cleanly.
    ============================================ */
 
 (function () {
   'use strict';
 
   var CONSENT_KEY = 'pmai_cookie_consent';
+  var POLICY_VERSION = 2;
+  var MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
   var APOLLO_APP_ID = '69b2e785b0ac0e001572c2bb';
 
+  /**
+   * Returns 'accepted' | 'rejected' | null.
+   * null means "no valid current consent on file" — show the banner.
+   * Anything stale/invalid/expired returns null so the user re-decides.
+   */
   function getConsent() {
     try {
-      return localStorage.getItem(CONSENT_KEY);
+      var raw = localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      // Legacy unversioned values from the v1 implementation — treat as invalid.
+      if (raw === 'accepted' || raw === 'rejected') return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return null;
+      if (parsed.version !== POLICY_VERSION) return null;
+      if (typeof parsed.timestamp !== 'number') return null;
+      if (Date.now() - parsed.timestamp > MAX_AGE_MS) return null;
+      if (parsed.decision !== 'accepted' && parsed.decision !== 'rejected') return null;
+      return parsed.decision;
     } catch (e) {
       return null;
     }
   }
 
-  function setConsent(value) {
+  function setConsent(decision) {
     try {
-      localStorage.setItem(CONSENT_KEY, value);
+      var record = {
+        version: POLICY_VERSION,
+        decision: decision,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
     } catch (e) {
       // localStorage unavailable
     }
