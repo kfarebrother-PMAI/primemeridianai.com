@@ -60,6 +60,52 @@
     }
   }
 
+  /**
+   * Banner styles are injected by the script itself rather than living in a
+   * stylesheet, so the banner works on every page regardless of which CSS
+   * is loaded. The marketing site's css/style.css and the Vite-bundled demo
+   * stylesheets don't need to know about each other.
+   * Idempotent — safe to call repeatedly.
+   */
+  function injectStyles() {
+    if (document.getElementById('pmai-cookie-banner-styles')) return;
+    var css =
+      '.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;' +
+      'background:#131B2E;border-top:1px solid #1E2A42;padding:1.5rem 2rem;' +
+      'box-shadow:0 -4px 24px rgba(0,0,0,0.4);' +
+      "font-family:'DM Sans','Helvetica Neue',sans-serif;" +
+      'animation:pmaiCookieSlideUp 0.3s ease-out;}' +
+      '.cookie-banner--hidden{animation:pmaiCookieSlideDown 0.3s ease-in forwards;}' +
+      '@keyframes pmaiCookieSlideUp{' +
+      'from{transform:translateY(100%);opacity:0;}' +
+      'to{transform:translateY(0);opacity:1;}}' +
+      '@keyframes pmaiCookieSlideDown{' +
+      'from{transform:translateY(0);opacity:1;}' +
+      'to{transform:translateY(100%);opacity:0;}}' +
+      '.cookie-banner__inner{max-width:1140px;margin:0 auto;display:flex;' +
+      'align-items:center;justify-content:space-between;gap:2rem;}' +
+      '.cookie-banner__text{font-size:0.875rem;color:#8A8780;' +
+      'line-height:1.5;margin:0;}' +
+      '.cookie-banner__text a{color:#D4A853;text-decoration:underline;}' +
+      '.cookie-banner__buttons{display:flex;gap:0.5rem;flex-shrink:0;}' +
+      '.cookie-banner__btn{font-family:inherit;font-size:0.875rem;' +
+      'font-weight:600;padding:0.5rem 1.5rem;border-radius:8px;border:none;' +
+      'cursor:pointer;white-space:nowrap;' +
+      'transition:background 0.2s,color 0.2s,border-color 0.2s;}' +
+      '.cookie-banner__btn--accept{background:#D4A853;color:#0B1120;}' +
+      '.cookie-banner__btn--accept:hover{background:#C49A45;}' +
+      '.cookie-banner__btn--reject{background:transparent;color:#8A8780;' +
+      'border:1px solid #1E2A42;}' +
+      '.cookie-banner__btn--reject:hover{border-color:#8A8780;color:#C8C5BE;}' +
+      '@media (max-width:768px){' +
+      '.cookie-banner__inner{flex-direction:column;text-align:center;}' +
+      '.cookie-banner__buttons{width:100%;justify-content:center;}}';
+    var style = document.createElement('style');
+    style.id = 'pmai-cookie-banner-styles';
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
   function loadApollo() {
     var n = Math.random().toString(36).substring(7);
     var o = document.createElement('script');
@@ -101,6 +147,7 @@
   }
 
   function showBanner() {
+    injectStyles();
     var banner = document.createElement('div');
     banner.id = 'cookie-consent-banner';
     banner.className = 'cookie-banner';
