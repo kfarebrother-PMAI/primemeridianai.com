@@ -125,16 +125,21 @@
     gtag('consent', 'update', {
       analytics_storage: 'granted'
     });
-    // Re-emit page_view so the cookied session inherits the current URL's
-    // attribution (UTMs etc.). The auto page_view fired by gtag('config') in
-    // the inline block runs pre-consent (cookieless, ephemeral identity); the
-    // persistent cookied identity created by this grant would otherwise start
-    // life with no source data → First user source = (direct). Only re-fire
-    // when there's a query string worth attributing, so plain repeat visits
-    // don't double-count page_view events.
-    if (window.location.search) {
-      gtag('event', 'page_view');
-    }
+    // Fire the FIRST page_view of the session here, after consent grants.
+    // The inline gtag('config', ..., { send_page_view: false }) suppresses
+    // the auto page_view that would otherwise fire on every page load,
+    // because that auto page_view runs pre-consent (gcs=G1-0) and GA4
+    // refuses to use denied events for session attribution — resulting in
+    // First user source = (direct) even for properly UTM-tagged inbound
+    // links. With send_page_view: false + this explicit post-grant fire,
+    // session_start is created by a granted event carrying full URL
+    // context, so UTMs attribute correctly.
+    //
+    // Trade-off: visitors who reject consent send no events at all (not
+    // even cookieless pings). That's stricter GDPR posture and a clean
+    // signal that "denied means denied," at the cost of losing GA4's
+    // modeled aggregate data from rejectors.
+    gtag('event', 'page_view');
   }
 
   function denyGA4() {
