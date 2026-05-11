@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>AI Audit Report Demo — Prime Meridian AI</title>
+    <script type="text/javascript">
+      // Single-page-app shim for GitHub Pages. (rafgraph/spa-github-pages)
+      // Translates the path the user typed into a query param, then redirects
+      // to the project root. index.html reads that param on boot and uses
+      // history.replaceState to restore the original URL.
+      //
+      // pathSegmentsToKeep = depth of the project's base path on the host.
+      //   /demos/{slug}/ has two segments to keep ("demos" and the slug).
+      var pathSegmentsToKeep = 2
+
+      var l = window.location
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
