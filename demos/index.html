@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>AI Audit Report Demos · Prime Meridian AI</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --paper: #FAF8F2;
+        --paper-edge: #F2EEE2;
+        --ink: #1A1815;
+        --ink-rgb: 26, 24, 21;
+        --navy: #0B1120;
+        --navy-ink: #E8DCC8;
+        --gold: #D4A853;
+        --gold-deep: #B88D38;
+        --serif: "Fraunces", Georgia, "Times New Roman", serif;
+        --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * , *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background:
+          radial-gradient(circle at 0 0, rgba(var(--ink-rgb), 0.06) 0.7px, transparent 0.7px) 0 0 / 28px 28px,
+          var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.55;
+        padding: 56px 32px;
+        min-height: 100vh;
+      }
+      .wrap { max-width: 720px; margin: 0 auto; }
+      .brand {
+        font-family: var(--sans);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin: 0 0 18px;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-weight: 600;
+        font-size: clamp(40px, 6vw, 56px);
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        margin: 0 0 12px;
+      }
+      .lede {
+        color: rgba(var(--ink-rgb), 0.65);
+        max-width: 60ch;
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+      .meta-line {
+        font-size: 13px;
+        color: rgba(var(--ink-rgb), 0.45);
+        letter-spacing: 0.02em;
+        margin: 0 0 40px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin: 40px 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .eyebrow::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(var(--ink-rgb), 0.15);
+      }
+      ul { list-style: none; padding: 0; margin: 0; }
+      li {
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
+      }
+      li:last-child { border-bottom: 0; }
+      .row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      a.sector {
+        color: var(--ink);
+        text-decoration: none;
+        font-family: var(--serif);
+        font-weight: 500;
+        font-size: 20px;
+        border-bottom: 1px solid rgba(var(--ink-rgb), 0.25);
+        transition: border-color .15s ease, color .15s ease;
+        padding-bottom: 1px;
+      }
+      a.sector:hover {
+        border-bottom-color: var(--gold);
+        color: var(--gold-deep);
+      }
+      .client {
+        font-family: var(--sans);
+        font-size: 12px;
+        color: rgba(var(--ink-rgb), 0.5);
+        letter-spacing: 0.01em;
+        margin: 4px 0 0;
+      }
+      .industry {
+        font-family: var(--sans);
+        font-size: 11px;
+        color: rgba(var(--ink-rgb), 0.4);
+        margin: 2px 0 0;
+        font-style: italic;
+      }
+      .note {
+        margin-top: 48px;
+        padding: 18px 22px;
+        background: var(--paper-edge);
+        border-left: 3px solid var(--gold);
+        font-size: 13px;
+        color: rgba(var(--ink-rgb), 0.72);
+        border-radius: 4px;
+        line-height: 1.6;
+      }
+      .note strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      code {
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 12px;
+        background: rgba(var(--ink-rgb), 0.06);
+        padding: 1px 5px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="brand">Prime Meridian AI</p>
+      <h1>AI Audit Report Demos</h1>
+      <p class="lede">Internal navigation. Each demo is a fictional client showing what a real AI Audit deliverable looks like.</p>
+      <p class="meta-line">15 sectors · 5 interactive · 10 awaiting migration</p>
+
+      <div class="eyebrow">Multipage (interactive)</div>
+      <ul>
+        <li>
+          <div class="row"><a class="sector" href="/demos/law/">Law</a></div>
+          <p class="client">Whitfield Carr Solicitors</p>
+          <p class="industry">UK Law · Commercial Property, Corporate/Commercial, Employment, Private Client</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/construction/">Construction</a></div>
+          <p class="client">Thornfield Construction Ltd</p>
+          <p class="industry">UK Construction · Specialist Fit-Out &amp; Refurbishment</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/transport/">Transport</a></div>
+          <p class="client">Ridgeway Transport Ltd</p>
+          <p class="industry">UK Transport &amp; Haulage · Regional General Haulage, Pallet Network</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/logistics/">Logistics</a></div>
+          <p class="client">Hartwell Freight Solutions Ltd</p>
+          <p class="industry">UK Logistics · Temperature-Controlled &amp; Time-Critical Freight Forwarding</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/real-estate/">Real Estate</a></div>
+          <p class="client">Hargrove &amp; Lane Property</p>
+          <p class="industry">UK Residential Estate Agency &amp; Lettings · Sales, Lettings, Property Management</p>
+        </li>
+      </ul>
+
+      <div class="eyebrow">Scroll (legacy — pending migration)</div>
+      <ul>
+        <li>
+          <div class="row"><a class="sector" href="/demos/accountancy/">Accountancy</a></div>
+          <p class="client">Hadley Marshall LLP</p>
+          <p class="industry">UK Chartered Accountancy · Owner-Managed Businesses &amp; Tax Advisory</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/healthcare-dental/">Healthcare &amp; Dental</a></div>
+          <p class="client">Thornbury Dental Group</p>
+          <p class="industry">UK Healthcare &amp; Dental · Mixed NHS/Private Dental Practice</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/consulting-advisory/">Consulting &amp; Advisory</a></div>
+          <p class="client">Albion Strategy Partners</p>
+          <p class="industry">UK Management Consulting · Boutique, Operational Excellence &amp; Digital Transformation</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/recruitment/">Recruitment</a></div>
+          <p class="client">Kinsley Archer Recruitment</p>
+          <p class="industry">UK Specialist Recruitment · Technology &amp; Engineering</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/financial-planning/">Financial Planning</a></div>
+          <p class="client">Harrington Wealth Management</p>
+          <p class="industry">UK Financial Planning · Independent Financial Advice (IFA)</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/it-services-msp/">IT Services &amp; MSP</a></div>
+          <p class="client">Cairn Technology Group</p>
+          <p class="industry">UK IT Services / Managed Service Provider · Mid-Market, Cybersecurity Growth</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/insurance-broking/">Insurance Broking</a></div>
+          <p class="client">Ridgeworth Insurance Brokers</p>
+          <p class="industry">UK Commercial Insurance Broking · SME Commercial Lines</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/marketing-creative/">Marketing &amp; Creative</a></div>
+          <p class="client">Ember &amp; Oak</p>
+          <p class="industry">UK Marketing &amp; Creative Agency · Full-Service, Brand-Led</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/architecture-engineering/">Architecture &amp; Engineering</a></div>
+          <p class="client">Forge &amp; Sable</p>
+          <p class="industry">UK Architecture &amp; Engineering · Multi-Disciplinary, Residential-Led</p>
+        </li>
+        <li>
+          <div class="row"><a class="sector" href="/demos/education-training/">Education &amp; Training</a></div>
+          <p class="client">Ashbridge Learning Group</p>
+          <p class="industry">UK Education &amp; Training · Apprenticeship ITP, Digital &amp; Business Skills</p>
+        </li>
+      </ul>
+
+      <div class="note">
+        <strong>Internal page.</strong> <code>noindex, nofollow</code> set. Each demo is a fictional client built to illustrate what an AI Audit deliverable looks like — not a real engagement.
+      </div>
+    </div>
+  </body>
+</html>
