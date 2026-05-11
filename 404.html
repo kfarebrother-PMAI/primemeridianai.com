@@ -10,17 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
     <script type="text/javascript">
-      // SPA fallback for the interactive multi-page demos at /demos/{slug}-multipage/.
+      // SPA fallback for the interactive sector demos at /demos/{slug}/.
       // Matches that path pattern only; everything else falls through to the static
       // "Page not found" content below. This file intentionally lives at the site root
       // because GitHub Pages serves it for any unmatched URL.
       (function () {
         var l = window.location
-        var match = l.pathname.match(/^\/demos\/([^/]+-multipage)(?:\/|$)/)
+        var match = l.pathname.match(/^\/demos\/([^/]+)(?:\/|$)/)
         if (!match) return
 
         var basePath = '/demos/' + match[1] + '/'
-        // pathSegmentsToKeep = 2 ("demos" + "{slug}-multipage")
+        // pathSegmentsToKeep = 2 ("demos" + "{slug}")
         var trailing = l.pathname
           .slice(basePath.length)
           .replace(/&/g, '~and~')
